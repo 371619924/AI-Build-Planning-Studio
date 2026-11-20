@@ -237,8 +237,8 @@
     },
     {
       "path": "AgentTooling/buildstudio/test_server.ts",
-      "bytes": 6576,
-      "sha256": "7cedc7fdb911ca7b2a4c98e91a4afc4685ff6a77d5bb5410c336e50ac179c362"
+      "bytes": 6534,
+      "sha256": "d6ecd917c00ea7b8ad8b2ee169a7e05a2fec0e6f5dedb35c0fab5539d18f1964"
     },
     {
       "path": "AgentTooling/buildstudio/test_ui.mjs",
@@ -357,8 +357,8 @@
     },
     {
       "path": "AgentTooling/verify_studio.py",
-      "bytes": 1837,
-      "sha256": "0fe5b3734b94ba143270adf3c5df1ee7b1f34f6aa655ff06640bb8e65e2c2903"
+      "bytes": 1955,
+      "sha256": "f6c1e0b588968ae30da1bd106eab72d35123a229d4399a13afa2a0b78aacd584"
     },
     {
       "path": "README.md",

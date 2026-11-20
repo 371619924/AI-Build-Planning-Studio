@@ -6,7 +6,7 @@ import {request as sendHttpRequest} from 'node:http';
 const root=dirname(fileURLToPath(import.meta.url));
 test('actual HTTP and persistent workflow',async()=>{
  const temporary=mkdtempSync(join(tmpdir(),'buildstudio-'));const transcript:any[]=[];const checks:string[]=[];
- const python=process.env.CODEX_PRIMARY_RUNTIME_PYTHON||process.env.BUILD_PYTHON||'python3';
+ const python=process.env.BUILD_PYTHON||'python3';
  const fixture=spawn(python,['-m','buildstudio.model_fixture','--port','0'],{cwd:join(root,'..'),stdio:['ignore','pipe','pipe']});
  const endpoint=await new Promise<string>((resolve,reject)=>{let raw='';fixture.stdout.on('data',chunk=>{raw+=chunk;if(raw.includes('\n')){try{resolve('http://127.0.0.1:'+JSON.parse(raw.split('\n')[0]).port+'/chat/completions');}catch(e){reject(e);}}});fixture.on('error',reject);fixture.on('exit',code=>{if(code)reject(Error('Fixture failed'));});});
  const db=join(temporary,'studio.db');let app=createApp({dbPath:db,endpoint,python});
