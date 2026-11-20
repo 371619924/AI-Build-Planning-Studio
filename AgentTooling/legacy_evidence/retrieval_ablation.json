@@ -1,0 +1,214 @@
+[
+  {
+    "query": "sensor temperature drift calibrated residual",
+    "relevant_id": "thermal",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "thermal",
+        "dropout"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "thermal",
+        "dropout"
+      ]
+    }
+  },
+  {
+    "query": "missing observations imputation dropout",
+    "relevant_id": "dropout",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "dropout",
+        "retry"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "dropout",
+        "retry"
+      ]
+    }
+  },
+  {
+    "query": "vibration autoencoder reconstruction",
+    "relevant_id": "vibration",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "vibration",
+        "dropout"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "vibration",
+        "dropout"
+      ]
+    }
+  },
+  {
+    "query": "energy demand forecasting power residual",
+    "relevant_id": "energy",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "energy",
+        "thermal"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "energy",
+        "thermal"
+      ]
+    }
+  },
+  {
+    "query": "cache expiration stampede TTL request bursts",
+    "relevant_id": "cache",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "cache"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "cache"
+      ]
+    }
+  },
+  {
+    "query": "preserve event position magnitude sorting permutation",
+    "relevant_id": "sort",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "sort",
+        "fft"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "sort",
+        "fft"
+      ]
+    }
+  },
+  {
+    "query": "conjugate symmetric Fourier real stress field",
+    "relevant_id": "fft",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "fft",
+        "safety",
+        "thermal"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "fft",
+        "safety",
+        "thermal"
+      ]
+    }
+  },
+  {
+    "query": "irregular events fixed interval exponential weights",
+    "relevant_id": "ema",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "ema"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "ema"
+      ]
+    }
+  },
+  {
+    "query": "idempotent failed tool bounded retry",
+    "relevant_id": "retry",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "retry"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "retry"
+      ]
+    }
+  },
+  {
+    "query": "retrieved source identifiers factual attribution",
+    "relevant_id": "sources",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "sources"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "sources"
+      ]
+    }
+  },
+  {
+    "query": "matched workloads ablation random seeds",
+    "relevant_id": "evaluation",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "evaluation",
+        "thermal"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "evaluation",
+        "thermal"
+      ]
+    }
+  },
+  {
+    "query": "offline prototype machinery field validation",
+    "relevant_id": "safety",
+    "overlap": {
+      "rank": 1,
+      "top3": [
+        "safety",
+        "thermal",
+        "vibration"
+      ]
+    },
+    "bm25": {
+      "rank": 1,
+      "top3": [
+        "safety",
+        "vibration",
+        "thermal"
+      ]
+    }
+  }
+]

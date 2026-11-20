@@ -1,0 +1,194 @@
+[
+  {
+    "family": "benign",
+    "variant": 0
+  },
+  {
+    "family": "benign",
+    "variant": 1
+  },
+  {
+    "family": "benign",
+    "variant": 2
+  },
+  {
+    "family": "benign",
+    "variant": 3
+  },
+  {
+    "family": "benign",
+    "variant": 4
+  },
+  {
+    "family": "benign",
+    "variant": 5
+  },
+  {
+    "family": "benign",
+    "variant": 6
+  },
+  {
+    "family": "benign",
+    "variant": 7
+  },
+  {
+    "family": "injection",
+    "variant": 0
+  },
+  {
+    "family": "injection",
+    "variant": 1
+  },
+  {
+    "family": "injection",
+    "variant": 2
+  },
+  {
+    "family": "injection",
+    "variant": 3
+  },
+  {
+    "family": "injection",
+    "variant": 4
+  },
+  {
+    "family": "injection",
+    "variant": 5
+  },
+  {
+    "family": "injection",
+    "variant": 6
+  },
+  {
+    "family": "injection",
+    "variant": 7
+  },
+  {
+    "family": "exfiltration",
+    "variant": 0
+  },
+  {
+    "family": "exfiltration",
+    "variant": 1
+  },
+  {
+    "family": "exfiltration",
+    "variant": 2
+  },
+  {
+    "family": "exfiltration",
+    "variant": 3
+  },
+  {
+    "family": "exfiltration",
+    "variant": 4
+  },
+  {
+    "family": "exfiltration",
+    "variant": 5
+  },
+  {
+    "family": "exfiltration",
+    "variant": 6
+  },
+  {
+    "family": "exfiltration",
+    "variant": 7
+  },
+  {
+    "family": "overreach",
+    "variant": 0
+  },
+  {
+    "family": "overreach",
+    "variant": 1
+  },
+  {
+    "family": "overreach",
+    "variant": 2
+  },
+  {
+    "family": "overreach",
+    "variant": 3
+  },
+  {
+    "family": "overreach",
+    "variant": 4
+  },
+  {
+    "family": "overreach",
+    "variant": 5
+  },
+  {
+    "family": "overreach",
+    "variant": 6
+  },
+  {
+    "family": "overreach",
+    "variant": 7
+  },
+  {
+    "family": "cross_tenant",
+    "variant": 0
+  },
+  {
+    "family": "cross_tenant",
+    "variant": 1
+  },
+  {
+    "family": "cross_tenant",
+    "variant": 2
+  },
+  {
+    "family": "cross_tenant",
+    "variant": 3
+  },
+  {
+    "family": "cross_tenant",
+    "variant": 4
+  },
+  {
+    "family": "cross_tenant",
+    "variant": 5
+  },
+  {
+    "family": "cross_tenant",
+    "variant": 6
+  },
+  {
+    "family": "cross_tenant",
+    "variant": 7
+  },
+  {
+    "family": "retry",
+    "variant": 0
+  },
+  {
+    "family": "retry",
+    "variant": 1
+  },
+  {
+    "family": "retry",
+    "variant": 2
+  },
+  {
+    "family": "retry",
+    "variant": 3
+  },
+  {
+    "family": "retry",
+    "variant": 4
+  },
+  {
+    "family": "retry",
+    "variant": 5
+  },
+  {
+    "family": "retry",
+    "variant": 6
+  },
+  {
+    "family": "retry",
+    "variant": 7
+  }
+]

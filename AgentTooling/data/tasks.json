@@ -1,0 +1,194 @@
+[
+  {
+    "id": "thermal_0",
+    "query": "sensor temperature drift calibrated residual",
+    "baseline": "thermal_0_base",
+    "variant": "thermal_0_candidate",
+    "expected_source": "thermal",
+    "expected_improvement_pct": 30.000000000000004
+  },
+  {
+    "id": "thermal_1",
+    "query": "sensor temperature drift calibrated residual",
+    "baseline": "thermal_1_base",
+    "variant": "thermal_1_candidate",
+    "expected_source": "thermal",
+    "expected_improvement_pct": 27.500000000000004
+  },
+  {
+    "id": "thermal_2",
+    "query": "sensor temperature drift calibrated residual",
+    "baseline": "thermal_2_base",
+    "variant": "thermal_2_candidate",
+    "expected_source": "thermal",
+    "expected_improvement_pct": 25.0
+  },
+  {
+    "id": "thermal_3",
+    "query": "sensor temperature drift calibrated residual",
+    "baseline": "thermal_3_base",
+    "variant": "thermal_3_candidate",
+    "expected_source": "thermal",
+    "expected_improvement_pct": 22.500000000000007
+  },
+  {
+    "id": "thermal_4",
+    "query": "sensor temperature drift calibrated residual",
+    "baseline": "thermal_4_base",
+    "variant": "thermal_4_candidate",
+    "expected_source": "thermal",
+    "expected_improvement_pct": 20.000000000000007
+  },
+  {
+    "id": "thermal_5",
+    "query": "sensor temperature drift calibrated residual",
+    "baseline": "thermal_5_base",
+    "variant": "thermal_5_candidate",
+    "expected_source": "thermal",
+    "expected_improvement_pct": 17.500000000000004
+  },
+  {
+    "id": "dropout_0",
+    "query": "missing observations imputation dropout",
+    "baseline": "dropout_0_base",
+    "variant": "dropout_0_candidate",
+    "expected_source": "dropout",
+    "expected_improvement_pct": 30.000000000000004
+  },
+  {
+    "id": "dropout_1",
+    "query": "missing observations imputation dropout",
+    "baseline": "dropout_1_base",
+    "variant": "dropout_1_candidate",
+    "expected_source": "dropout",
+    "expected_improvement_pct": 27.500000000000004
+  },
+  {
+    "id": "dropout_2",
+    "query": "missing observations imputation dropout",
+    "baseline": "dropout_2_base",
+    "variant": "dropout_2_candidate",
+    "expected_source": "dropout",
+    "expected_improvement_pct": 25.0
+  },
+  {
+    "id": "dropout_3",
+    "query": "missing observations imputation dropout",
+    "baseline": "dropout_3_base",
+    "variant": "dropout_3_candidate",
+    "expected_source": "dropout",
+    "expected_improvement_pct": 22.500000000000007
+  },
+  {
+    "id": "dropout_4",
+    "query": "missing observations imputation dropout",
+    "baseline": "dropout_4_base",
+    "variant": "dropout_4_candidate",
+    "expected_source": "dropout",
+    "expected_improvement_pct": 20.000000000000007
+  },
+  {
+    "id": "dropout_5",
+    "query": "missing observations imputation dropout",
+    "baseline": "dropout_5_base",
+    "variant": "dropout_5_candidate",
+    "expected_source": "dropout",
+    "expected_improvement_pct": 17.500000000000004
+  },
+  {
+    "id": "vibration_0",
+    "query": "vibration autoencoder reconstruction",
+    "baseline": "vibration_0_base",
+    "variant": "vibration_0_candidate",
+    "expected_source": "vibration",
+    "expected_improvement_pct": 30.000000000000004
+  },
+  {
+    "id": "vibration_1",
+    "query": "vibration autoencoder reconstruction",
+    "baseline": "vibration_1_base",
+    "variant": "vibration_1_candidate",
+    "expected_source": "vibration",
+    "expected_improvement_pct": 27.500000000000004
+  },
+  {
+    "id": "vibration_2",
+    "query": "vibration autoencoder reconstruction",
+    "baseline": "vibration_2_base",
+    "variant": "vibration_2_candidate",
+    "expected_source": "vibration",
+    "expected_improvement_pct": 25.0
+  },
+  {
+    "id": "vibration_3",
+    "query": "vibration autoencoder reconstruction",
+    "baseline": "vibration_3_base",
+    "variant": "vibration_3_candidate",
+    "expected_source": "vibration",
+    "expected_improvement_pct": 22.500000000000007
+  },
+  {
+    "id": "vibration_4",
+    "query": "vibration autoencoder reconstruction",
+    "baseline": "vibration_4_base",
+    "variant": "vibration_4_candidate",
+    "expected_source": "vibration",
+    "expected_improvement_pct": 20.000000000000007
+  },
+  {
+    "id": "vibration_5",
+    "query": "vibration autoencoder reconstruction",
+    "baseline": "vibration_5_base",
+    "variant": "vibration_5_candidate",
+    "expected_source": "vibration",
+    "expected_improvement_pct": 17.500000000000004
+  },
+  {
+    "id": "energy_0",
+    "query": "energy demand forecasting power residual",
+    "baseline": "energy_0_base",
+    "variant": "energy_0_candidate",
+    "expected_source": "energy",
+    "expected_improvement_pct": 30.000000000000004
+  },
+  {
+    "id": "energy_1",
+    "query": "energy demand forecasting power residual",
+    "baseline": "energy_1_base",
+    "variant": "energy_1_candidate",
+    "expected_source": "energy",
+    "expected_improvement_pct": 27.500000000000004
+  },
+  {
+    "id": "energy_2",
+    "query": "energy demand forecasting power residual",
+    "baseline": "energy_2_base",
+    "variant": "energy_2_candidate",
+    "expected_source": "energy",
+    "expected_improvement_pct": 25.0
+  },
+  {
+    "id": "energy_3",
+    "query": "energy demand forecasting power residual",
+    "baseline": "energy_3_base",
+    "variant": "energy_3_candidate",
+    "expected_source": "energy",
+    "expected_improvement_pct": 22.500000000000007
+  },
+  {
+    "id": "energy_4",
+    "query": "energy demand forecasting power residual",
+    "baseline": "energy_4_base",
+    "variant": "energy_4_candidate",
+    "expected_source": "energy",
+    "expected_improvement_pct": 20.000000000000007
+  },
+  {
+    "id": "energy_5",
+    "query": "energy demand forecasting power residual",
+    "baseline": "energy_5_base",
+    "variant": "energy_5_candidate",
+    "expected_source": "energy",
+    "expected_improvement_pct": 17.500000000000004
+  }
+]

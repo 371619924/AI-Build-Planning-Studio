@@ -1,0 +1,74 @@
+[
+  {
+    "id": "thermal",
+    "title": "Thermal drift calibration",
+    "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "dropout",
+    "title": "Missing sensor observations",
+    "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "vibration",
+    "title": "Vibration reconstruction",
+    "text": "A vibration autoencoder reconstructs sampled machine signals. Reconstruction mean squared error can identify changed operating conditions, but threshold calibration and labeled validation are separate experiments.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "energy",
+    "title": "Energy demand residuals",
+    "text": "Energy demand forecasting residuals measure errors between predicted and observed power. Align timestamps and units before comparing smoothing or feature variants.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "cache",
+    "title": "Cache expiry reliability",
+    "text": "Simultaneous cache expiration causes a cache stampede. Dynamic TTL and rate limiting reduce request bursts; measure peak throughput on the same workload rather than extrapolating to all requests.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "sort",
+    "title": "Aligned catalog sorting",
+    "text": "Time, magnitude, position and class labels must share one sorting permutation. Sorting each column independently destroys event alignment and invalidates subsequent analysis.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "fft",
+    "title": "Fourier stress synthesis",
+    "text": "Conjugate-symmetric Fourier coefficients and an inverse two-dimensional FFT synthesize real stress fields. Compare runtime for the same grid and preserve the intended spatial correlation.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "ema",
+    "title": "Exponential moving averages",
+    "text": "Irregular events first become fixed-interval counts. Normalized exponential moving-average weights smooth count histories; the observation interval and decay parameter change the interpretation.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "retry",
+    "title": "Retry semantics",
+    "text": "Retry a failed tool only if its operation is idempotent or deduplicated. A bounded retry count prevents indefinite loops, while a checkpoint records completed tool observations.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "sources",
+    "title": "Evidence attribution",
+    "text": "An experimental report associates factual claims with retrieved source identifiers and observed run metrics. Source presence validates attribution, not semantic entailment or factual truth.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "evaluation",
+    "title": "Controlled evaluation",
+    "text": "Use separate training and evaluation sets. Compare ablations on matched workloads, record random seeds, and distinguish a scripted control-plane test from model reasoning accuracy.",
+    "provenance": "Synthetic engineering note"
+  },
+  {
+    "id": "safety",
+    "title": "Industrial deployment scope",
+    "text": "An offline synthetic prototype does not control machinery. Field deployment requires domain-specific validation, permissions, monitoring and independently reviewed operational procedures.",
+    "provenance": "Synthetic engineering note"
+  }
+]

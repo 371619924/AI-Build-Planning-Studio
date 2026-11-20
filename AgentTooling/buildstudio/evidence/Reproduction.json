@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "clean_source_copy": true,
+  "stable_new_and_retained_results_match": true,
+  "same_installed_runtime": true,
+  "dependency_installation_tested": false,
+  "browser_executed": false,
+  "react_renderer_executed": false,
+  "cad_renderer_executed": false,
+  "external_llm_calls": 0
+}

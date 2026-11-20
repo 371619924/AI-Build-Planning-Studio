@@ -1,0 +1,18 @@
+{
+  "README.md": "849e31dfa8c0e18cf209e2a1cf34663032e7b486f32c00e75777233036089d6e",
+  "agent_lab.py": "218c02fe56996610a3faba6af6dcd42c49e429e14ef8e542eabc8e7841c6f9ee",
+  "artifacts/fault_traces.json": "fe8fef284e17abd029535388f7c04c966a6697af6f262e4df4a2dadbaeede44f",
+  "artifacts/http_adapter_trace.json": "b0cfc353eab28693f90d64b95e43763a74a283eb9e7117492d9f137a3850199c",
+  "artifacts/input_hashes.json": "fd3f970e832e1165db288ae0f8fbfe23b5759d742b8a57c166141368476a3dd1",
+  "artifacts/nominal_traces.json": "a147e980d985c99ec6ebdeeffe4a2c0a9931bfca95cbdca284235c4eb01d4161",
+  "artifacts/retrieval_ablation.json": "31f23f18c00e601c4a18b159b6e1901d6fac5ae8343744e8ec07ff0154944efc",
+  "artifacts/summary.json": "1cbc381000d2d48c5e40478398bc085ce8bb8b2940ba987c8040f57938d9a61f",
+  "create_fixtures.py": "8124a9ff719bc58e958860676697c08c6a2d782255f54a2fb209d38b1d8d8cd4",
+  "data/corpus.json": "70a02b18c58e7886d92bc295315a326287530d4712e88e5e1ebe2e77c23c66bd",
+  "data/experiments.sqlite": "66ce433fcf14c3af254e55ad1b0e4e88a957feab7b79d909cb8916595f76d9b6",
+  "data/retrieval_queries.json": "85709b03fed138b7258c910536f905f5925a1fc67403c8aa0c56f71d3f9ff963",
+  "data/tasks.json": "62035f7f594c89760c0e02ba300315c0df38f7296c1ae72ee6e2537643b866c9",
+  "evaluate.py": "4c611e6336d19b57b1f1e8e16a377b834e588a0e63f1f37de32b6950543bfda0",
+  "requirements.lock.txt": "534b4380641b6875063811662b78da8ff5bbf9dc717268dad8243b3cbb4f9f6b",
+  "requirements.txt": "1d8a96366c1b5bd4d429f139a7b23d7257583431603a262f125411a4e2f94931"
+}

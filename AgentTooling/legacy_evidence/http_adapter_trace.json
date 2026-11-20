@@ -1,0 +1,780 @@
+{
+  "state": {
+    "task": {
+      "id": "thermal_0",
+      "query": "sensor temperature drift calibrated residual",
+      "baseline": "thermal_0_base",
+      "variant": "thermal_0_candidate",
+      "expected_source": "thermal",
+      "expected_improvement_pct": 30.000000000000004
+    },
+    "steps": 5,
+    "max_steps": 8,
+    "action": {
+      "kind": "tool",
+      "name": "compare_runs",
+      "arguments": {
+        "baseline_id": "thermal_0_base",
+        "variant_id": "thermal_0_candidate"
+      },
+      "report": {}
+    },
+    "observations": [
+      {
+        "name": "search_knowledge",
+        "arguments": {
+          "query": "sensor temperature drift calibrated residual",
+          "k": 3
+        },
+        "attempts": 1,
+        "result": {
+          "documents": [
+            {
+              "id": "thermal",
+              "title": "Thermal drift calibration",
+              "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+              "score": 11.366872
+            },
+            {
+              "id": "dropout",
+              "title": "Missing sensor observations",
+              "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+              "score": 2.249493
+            }
+          ]
+        }
+      },
+      {
+        "name": "load_run",
+        "arguments": {
+          "run_id": "thermal_0_base"
+        },
+        "attempts": 1,
+        "result": {
+          "run_id": "thermal_0_base",
+          "samples": 32,
+          "mean_mse": 0.494684147125
+        }
+      },
+      {
+        "name": "load_run",
+        "arguments": {
+          "run_id": "thermal_0_candidate"
+        },
+        "attempts": 1,
+        "result": {
+          "run_id": "thermal_0_candidate",
+          "samples": 32,
+          "mean_mse": 0.34627890298749997
+        }
+      },
+      {
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_0_base",
+          "variant_id": "thermal_0_candidate"
+        },
+        "attempts": 1,
+        "result": {
+          "baseline_id": "thermal_0_base",
+          "variant_id": "thermal_0_candidate",
+          "baseline_mse": 0.494684147125,
+          "variant_mse": 0.34627890298749997,
+          "samples_per_run": 32,
+          "improvement_pct": 30.0
+        }
+      }
+    ],
+    "loaded": {
+      "thermal_0_base": {
+        "run_id": "thermal_0_base",
+        "samples": 32,
+        "mean_mse": 0.494684147125
+      },
+      "thermal_0_candidate": {
+        "run_id": "thermal_0_candidate",
+        "samples": 32,
+        "mean_mse": 0.34627890298749997
+      }
+    },
+    "comparison": {
+      "baseline_id": "thermal_0_base",
+      "variant_id": "thermal_0_candidate",
+      "baseline_mse": 0.494684147125,
+      "variant_mse": 0.34627890298749997,
+      "samples_per_run": 32,
+      "improvement_pct": 30.0
+    },
+    "status": "complete",
+    "report": {
+      "summary": "Synthetic experiment comparison with retrieved engineering context.",
+      "citations": [
+        "thermal"
+      ],
+      "improvement_pct": 30.0
+    },
+    "checkpoint_resumes": 4
+  },
+  "requests": [
+    {
+      "model": "local-scripted-fixture",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use available tools to retrieve context, load both runs, and compare them. Call at most one tool per turn. Finish with a JSON object containing summary, citations (retrieved source IDs), and improvement_pct from compare_runs."
+        },
+        {
+          "role": "user",
+          "content": "{\"id\": \"thermal_0\", \"query\": \"sensor temperature drift calibrated residual\", \"baseline\": \"thermal_0_base\", \"variant\": \"thermal_0_candidate\", \"expected_source\": \"thermal\", \"expected_improvement_pct\": 30.000000000000004}"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_knowledge",
+            "description": "Retrieve synthetic engineering notes; return source IDs.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "query": {
+                  "maxLength": 500,
+                  "minLength": 1,
+                  "title": "Query",
+                  "type": "string"
+                },
+                "k": {
+                  "default": 3,
+                  "maximum": 5,
+                  "minimum": 1,
+                  "title": "K",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query"
+              ],
+              "title": "SearchArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "load_run",
+            "description": "Load a synthetic experiment run by its identifier.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "run_id": {
+                  "pattern": "^[a-z0-9_]+$",
+                  "title": "Run Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "run_id"
+              ],
+              "title": "RunArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "compare_runs",
+            "description": "Compare two already-loaded runs, using mean MSE reduction.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "baseline_id": {
+                  "title": "Baseline Id",
+                  "type": "string"
+                },
+                "variant_id": {
+                  "title": "Variant Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "baseline_id",
+                "variant_id"
+              ],
+              "title": "CompareArgs",
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "temperature": 0
+    },
+    {
+      "model": "local-scripted-fixture",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use available tools to retrieve context, load both runs, and compare them. Call at most one tool per turn. Finish with a JSON object containing summary, citations (retrieved source IDs), and improvement_pct from compare_runs."
+        },
+        {
+          "role": "user",
+          "content": "{\"id\": \"thermal_0\", \"query\": \"sensor temperature drift calibrated residual\", \"baseline\": \"thermal_0_base\", \"variant\": \"thermal_0_candidate\", \"expected_source\": \"thermal\", \"expected_improvement_pct\": 30.000000000000004}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_0",
+              "type": "function",
+              "function": {
+                "name": "search_knowledge",
+                "arguments": "{\"query\": \"sensor temperature drift calibrated residual\", \"k\": 3}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_0",
+          "content": "{\"documents\": [{\"id\": \"thermal\", \"title\": \"Thermal drift calibration\", \"text\": \"Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.\", \"score\": 11.366872}, {\"id\": \"dropout\", \"title\": \"Missing sensor observations\", \"text\": \"Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.\", \"score\": 2.249493}]}"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_knowledge",
+            "description": "Retrieve synthetic engineering notes; return source IDs.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "query": {
+                  "maxLength": 500,
+                  "minLength": 1,
+                  "title": "Query",
+                  "type": "string"
+                },
+                "k": {
+                  "default": 3,
+                  "maximum": 5,
+                  "minimum": 1,
+                  "title": "K",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query"
+              ],
+              "title": "SearchArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "load_run",
+            "description": "Load a synthetic experiment run by its identifier.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "run_id": {
+                  "pattern": "^[a-z0-9_]+$",
+                  "title": "Run Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "run_id"
+              ],
+              "title": "RunArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "compare_runs",
+            "description": "Compare two already-loaded runs, using mean MSE reduction.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "baseline_id": {
+                  "title": "Baseline Id",
+                  "type": "string"
+                },
+                "variant_id": {
+                  "title": "Variant Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "baseline_id",
+                "variant_id"
+              ],
+              "title": "CompareArgs",
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "temperature": 0
+    },
+    {
+      "model": "local-scripted-fixture",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use available tools to retrieve context, load both runs, and compare them. Call at most one tool per turn. Finish with a JSON object containing summary, citations (retrieved source IDs), and improvement_pct from compare_runs."
+        },
+        {
+          "role": "user",
+          "content": "{\"id\": \"thermal_0\", \"query\": \"sensor temperature drift calibrated residual\", \"baseline\": \"thermal_0_base\", \"variant\": \"thermal_0_candidate\", \"expected_source\": \"thermal\", \"expected_improvement_pct\": 30.000000000000004}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_0",
+              "type": "function",
+              "function": {
+                "name": "search_knowledge",
+                "arguments": "{\"query\": \"sensor temperature drift calibrated residual\", \"k\": 3}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_0",
+          "content": "{\"documents\": [{\"id\": \"thermal\", \"title\": \"Thermal drift calibration\", \"text\": \"Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.\", \"score\": 11.366872}, {\"id\": \"dropout\", \"title\": \"Missing sensor observations\", \"text\": \"Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.\", \"score\": 2.249493}]}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "function",
+              "function": {
+                "name": "load_run",
+                "arguments": "{\"run_id\": \"thermal_0_base\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_1",
+          "content": "{\"run_id\": \"thermal_0_base\", \"samples\": 32, \"mean_mse\": 0.494684147125}"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_knowledge",
+            "description": "Retrieve synthetic engineering notes; return source IDs.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "query": {
+                  "maxLength": 500,
+                  "minLength": 1,
+                  "title": "Query",
+                  "type": "string"
+                },
+                "k": {
+                  "default": 3,
+                  "maximum": 5,
+                  "minimum": 1,
+                  "title": "K",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query"
+              ],
+              "title": "SearchArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "load_run",
+            "description": "Load a synthetic experiment run by its identifier.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "run_id": {
+                  "pattern": "^[a-z0-9_]+$",
+                  "title": "Run Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "run_id"
+              ],
+              "title": "RunArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "compare_runs",
+            "description": "Compare two already-loaded runs, using mean MSE reduction.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "baseline_id": {
+                  "title": "Baseline Id",
+                  "type": "string"
+                },
+                "variant_id": {
+                  "title": "Variant Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "baseline_id",
+                "variant_id"
+              ],
+              "title": "CompareArgs",
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "temperature": 0
+    },
+    {
+      "model": "local-scripted-fixture",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use available tools to retrieve context, load both runs, and compare them. Call at most one tool per turn. Finish with a JSON object containing summary, citations (retrieved source IDs), and improvement_pct from compare_runs."
+        },
+        {
+          "role": "user",
+          "content": "{\"id\": \"thermal_0\", \"query\": \"sensor temperature drift calibrated residual\", \"baseline\": \"thermal_0_base\", \"variant\": \"thermal_0_candidate\", \"expected_source\": \"thermal\", \"expected_improvement_pct\": 30.000000000000004}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_0",
+              "type": "function",
+              "function": {
+                "name": "search_knowledge",
+                "arguments": "{\"query\": \"sensor temperature drift calibrated residual\", \"k\": 3}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_0",
+          "content": "{\"documents\": [{\"id\": \"thermal\", \"title\": \"Thermal drift calibration\", \"text\": \"Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.\", \"score\": 11.366872}, {\"id\": \"dropout\", \"title\": \"Missing sensor observations\", \"text\": \"Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.\", \"score\": 2.249493}]}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "function",
+              "function": {
+                "name": "load_run",
+                "arguments": "{\"run_id\": \"thermal_0_base\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_1",
+          "content": "{\"run_id\": \"thermal_0_base\", \"samples\": 32, \"mean_mse\": 0.494684147125}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_2",
+              "type": "function",
+              "function": {
+                "name": "load_run",
+                "arguments": "{\"run_id\": \"thermal_0_candidate\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_2",
+          "content": "{\"run_id\": \"thermal_0_candidate\", \"samples\": 32, \"mean_mse\": 0.34627890298749997}"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_knowledge",
+            "description": "Retrieve synthetic engineering notes; return source IDs.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "query": {
+                  "maxLength": 500,
+                  "minLength": 1,
+                  "title": "Query",
+                  "type": "string"
+                },
+                "k": {
+                  "default": 3,
+                  "maximum": 5,
+                  "minimum": 1,
+                  "title": "K",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query"
+              ],
+              "title": "SearchArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "load_run",
+            "description": "Load a synthetic experiment run by its identifier.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "run_id": {
+                  "pattern": "^[a-z0-9_]+$",
+                  "title": "Run Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "run_id"
+              ],
+              "title": "RunArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "compare_runs",
+            "description": "Compare two already-loaded runs, using mean MSE reduction.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "baseline_id": {
+                  "title": "Baseline Id",
+                  "type": "string"
+                },
+                "variant_id": {
+                  "title": "Variant Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "baseline_id",
+                "variant_id"
+              ],
+              "title": "CompareArgs",
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "temperature": 0
+    },
+    {
+      "model": "local-scripted-fixture",
+      "messages": [
+        {
+          "role": "system",
+          "content": "Use available tools to retrieve context, load both runs, and compare them. Call at most one tool per turn. Finish with a JSON object containing summary, citations (retrieved source IDs), and improvement_pct from compare_runs."
+        },
+        {
+          "role": "user",
+          "content": "{\"id\": \"thermal_0\", \"query\": \"sensor temperature drift calibrated residual\", \"baseline\": \"thermal_0_base\", \"variant\": \"thermal_0_candidate\", \"expected_source\": \"thermal\", \"expected_improvement_pct\": 30.000000000000004}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_0",
+              "type": "function",
+              "function": {
+                "name": "search_knowledge",
+                "arguments": "{\"query\": \"sensor temperature drift calibrated residual\", \"k\": 3}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_0",
+          "content": "{\"documents\": [{\"id\": \"thermal\", \"title\": \"Thermal drift calibration\", \"text\": \"Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.\", \"score\": 11.366872}, {\"id\": \"dropout\", \"title\": \"Missing sensor observations\", \"text\": \"Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.\", \"score\": 2.249493}]}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_1",
+              "type": "function",
+              "function": {
+                "name": "load_run",
+                "arguments": "{\"run_id\": \"thermal_0_base\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_1",
+          "content": "{\"run_id\": \"thermal_0_base\", \"samples\": 32, \"mean_mse\": 0.494684147125}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_2",
+              "type": "function",
+              "function": {
+                "name": "load_run",
+                "arguments": "{\"run_id\": \"thermal_0_candidate\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_2",
+          "content": "{\"run_id\": \"thermal_0_candidate\", \"samples\": 32, \"mean_mse\": 0.34627890298749997}"
+        },
+        {
+          "role": "assistant",
+          "content": null,
+          "tool_calls": [
+            {
+              "id": "call_3",
+              "type": "function",
+              "function": {
+                "name": "compare_runs",
+                "arguments": "{\"baseline_id\": \"thermal_0_base\", \"variant_id\": \"thermal_0_candidate\"}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_3",
+          "content": "{\"baseline_id\": \"thermal_0_base\", \"variant_id\": \"thermal_0_candidate\", \"baseline_mse\": 0.494684147125, \"variant_mse\": 0.34627890298749997, \"samples_per_run\": 32, \"improvement_pct\": 30.0}"
+        }
+      ],
+      "tools": [
+        {
+          "type": "function",
+          "function": {
+            "name": "search_knowledge",
+            "description": "Retrieve synthetic engineering notes; return source IDs.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "query": {
+                  "maxLength": 500,
+                  "minLength": 1,
+                  "title": "Query",
+                  "type": "string"
+                },
+                "k": {
+                  "default": 3,
+                  "maximum": 5,
+                  "minimum": 1,
+                  "title": "K",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query"
+              ],
+              "title": "SearchArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "load_run",
+            "description": "Load a synthetic experiment run by its identifier.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "run_id": {
+                  "pattern": "^[a-z0-9_]+$",
+                  "title": "Run Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "run_id"
+              ],
+              "title": "RunArgs",
+              "type": "object"
+            }
+          }
+        },
+        {
+          "type": "function",
+          "function": {
+            "name": "compare_runs",
+            "description": "Compare two already-loaded runs, using mean MSE reduction.",
+            "parameters": {
+              "additionalProperties": false,
+              "properties": {
+                "baseline_id": {
+                  "title": "Baseline Id",
+                  "type": "string"
+                },
+                "variant_id": {
+                  "title": "Variant Id",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "baseline_id",
+                "variant_id"
+              ],
+              "title": "CompareArgs",
+              "type": "object"
+            }
+          }
+        }
+      ],
+      "temperature": 0
+    }
+  ]
+}

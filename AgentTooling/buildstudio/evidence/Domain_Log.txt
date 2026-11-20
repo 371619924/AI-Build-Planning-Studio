@@ -1,0 +1,21 @@
+test_catalog_and_shape_rejection (buildstudio.test_domain.DomainTests.test_catalog_and_shape_rejection) ... ok
+test_current_and_bus_address_rules (buildstudio.test_domain.DomainTests.test_current_and_bus_address_rules) ... ok
+test_dimensions_and_nonfinite_rejected (buildstudio.test_domain.DomainTests.test_dimensions_and_nonfinite_rejected) ... ok
+test_exact_fixture_fit (buildstudio.test_domain.DomainTests.test_exact_fixture_fit) ... ok
+test_hash_tracks_catalog_and_plan (buildstudio.test_domain.DomainTests.test_hash_tracks_catalog_and_plan) ... ok
+test_supported_recipes (buildstudio.test_domain.DomainTests.test_supported_recipes) ... ok
+test_voltage_mismatch (buildstudio.test_domain.DomainTests.test_voltage_mismatch) ... ok
+test_wiring_is_exact (buildstudio.test_domain.DomainTests.test_wiring_is_exact) ... ok
+test_bad_prompt (buildstudio.test_domain.ProtocolTests.test_bad_prompt) ... ok
+test_external_provider_not_enabled (buildstudio.test_domain.ProtocolTests.test_external_provider_not_enabled) ... ok
+test_invented_parts_cannot_finish (buildstudio.test_domain.ProtocolTests.test_invented_parts_cannot_finish) ... ok
+test_loop_bound (buildstudio.test_domain.ProtocolTests.test_loop_bound) ... ok
+test_premature_finalization_rejected (buildstudio.test_domain.ProtocolTests.test_premature_finalization_rejected) ... ok
+test_provider_failure_propagates (buildstudio.test_domain.ProtocolTests.test_provider_failure_propagates) ... ok
+test_supported_tool_sequence_and_provenance (buildstudio.test_domain.ProtocolTests.test_supported_tool_sequence_and_provenance) ... ok
+test_unsupported_explicit (buildstudio.test_domain.ProtocolTests.test_unsupported_explicit) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.525s
+
+OK

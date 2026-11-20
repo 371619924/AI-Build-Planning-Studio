@@ -1,0 +1,36 @@
+{
+  "provenance": "Agent tooling prototype; all evaluation policies scripted; all domain data synthetic.",
+  "python": "3.12.14",
+  "langgraph": "1.2.16",
+  "pydantic": "2.14.1",
+  "nominal_episodes": 24,
+  "nominal_passed": 24,
+  "checkpoint_resumes": 96,
+  "fault_scenarios": 8,
+  "fault_expected_outcomes": 8,
+  "http_adapter_fixture_passed": true,
+  "external_llm_calls": 0,
+  "corpus_documents": 12,
+  "synthetic_observation_rows": 1536,
+  "retrieval_queries": 12,
+  "retrieval_ablation": {
+    "overlap": {
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0
+    },
+    "bm25": {
+      "recall_at_3": 1.0,
+      "mrr_at_3": 1.0
+    }
+  },
+  "wall_seconds": 0.8413788749999185,
+  "limitations": [
+    "No live LLM reasoning benchmark",
+    "No reinforcement learning or model post-training",
+    "In-memory checkpoint resume only; not restart durability",
+    "Small hand-authored synthetic retrieval set; not a held-out benchmark",
+    "Citation membership is not entailment verification",
+    "No real Bosch data, equipment, customers or production deployment"
+  ],
+  "failures": []
+}

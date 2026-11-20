@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "tests": 21,
+  "evaluation_episodes": 144,
+  "fresh_source_tests_passed": true,
+  "stable_evaluation_matches": true,
+  "agent_process_restart_tested": true,
+  "world_server_persisted_during_agent_restart": true,
+  "native_model_protocol_loopback_tested": true,
+  "external_llm_calls": 0,
+  "shared_retrieval_experiment_and_report_tools_tested": true,
+  "torch_runtime_executed": false,
+  "legacy_langgraph_runtime_executed": false,
+  "python": "3.12.14",
+  "scope": "Fresh source directory, same Python/OS. No model training, external LLM evaluation, GPU or cloud deployment."
+}

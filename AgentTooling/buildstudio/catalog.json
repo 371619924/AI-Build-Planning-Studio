@@ -1,0 +1,12 @@
+{
+ "version":"fixture-one",
+ "scope":"Synthetic parts and compatibility rules only; not electrically tested hardware.",
+ "board":{"id":"demo-mcu","voltage_mv":3300,"budget_ma":100,"dimensions_mm":[32,20,8]},
+ "modules":[
+  {"id":"demo-moisture","capability":"soil moisture","voltage_mv":3300,"current_ma":12,"dimensions_mm":[25,12,5],"bus":"analog","address":null,"wiring":{"VCC":"3V3","GND":"GND","OUT":"A0"}},
+  {"id":"demo-climate","capability":"temperature humidity","voltage_mv":3300,"current_ma":10,"dimensions_mm":[20,15,7],"bus":"i2c","address":64,"wiring":{"VCC":"3V3","GND":"GND","SDA":"SDA","SCL":"SCL"}},
+  {"id":"demo-display","capability":"display","voltage_mv":3300,"current_ma":25,"dimensions_mm":[28,20,6],"bus":"i2c","address":60,"wiring":{"VCC":"3V3","GND":"GND","SDA":"SDA","SCL":"SCL"}},
+  {"id":"demo-led","capability":"indicator light","voltage_mv":3300,"current_ma":20,"dimensions_mm":[10,10,4],"bus":"digital","address":null,"wiring":{"VCC":"3V3","GND":"GND","SIG":"D1"}},
+  {"id":"demo-legacy","capability":"legacy sensor","voltage_mv":5000,"current_ma":110,"dimensions_mm":[20,20,8],"bus":"analog","address":null,"wiring":{"VCC":"3V3","GND":"GND","OUT":"A0"}}
+ ]
+}

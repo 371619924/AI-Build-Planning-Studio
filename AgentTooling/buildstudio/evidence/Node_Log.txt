@@ -1,0 +1,15 @@
+✔ actual HTTP and persistent workflow (678.119691ms)
+✔ duplicate pending generate suppressed (2.400259ms)
+✔ prompt change suppresses obsolete response (0.295486ms)
+✔ uncertain create reuses key (0.299611ms)
+✔ version conflict preserves draft until reload (0.633704ms)
+✔ revision uses expected version (0.283247ms)
+✔ unsupported has no editable geometry (0.166726ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 807.351098

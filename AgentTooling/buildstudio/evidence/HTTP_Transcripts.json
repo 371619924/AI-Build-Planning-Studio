@@ -1,0 +1,2328 @@
+[
+  {
+    "path": "/",
+    "method": "GET",
+    "status": 200,
+    "response": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Build Planning Studio</title><style>\nbody{font:16px/1.5 system-ui;background:#f3f5f4;color:#16352c;margin:0}main{max-width:900px;margin:auto;padding:32px}label{display:block;font-weight:600;margin-top:18px}input,textarea{box-sizing:border-box;width:100%;padding:12px;border:1px solid #84998e;border-radius:6px;font:inherit}textarea{min-height:260px;font-family:monospace;font-size:14px}button{padding:11px 17px;background:#194c3c;color:white;border:0;border-radius:6px;margin:12px 8px 0 0}button:disabled{opacity:.5}section{background:white;padding:20px;margin-top:20px;border-radius:10px}pre{white-space:pre-wrap;overflow-wrap:anywhere}.note{color:#52665e}</style></head><body><main>\n<p>AGENTTOOLING / LOCAL BUILD PLANNING</p><h1>From a build idea to a checked plan.</h1>\n<p class=\"note\">Synthetic component rules and a scripted model fixture. No live AI inference, electrical testing, firmware generation or CAD rendering. Nothing is sent to an external model.</p>\n<form id=\"generate-form\"><label for=\"prompt\">Build request</label><input id=\"prompt\" value=\"Plant moisture monitor\" maxlength=\"1000\" required><button id=\"generate\">Generate plan</button></form>\n<p id=\"status\" role=\"status\" aria-live=\"polite\"></p><section><h2>Build result</h2><pre id=\"summary\">Try: Plant moisture monitor; Climate monitor with display; Indicator light. Other capabilities may be unsupported.</pre></section>\n<section><h2>Revise a supported plan</h2><label for=\"draft\">Complete plan JSON</label><textarea id=\"draft\" spellcheck=\"false\"></textarea><button id=\"save\" disabled>Validate and save revision</button><button id=\"reload\" disabled>Reload latest (discards draft)</button><button id=\"download\" disabled>Download enclosure source</button><p class=\"note\">Downloaded OpenSCAD source is an illustrative enclosure. Fit, connector access, tolerances and manufacturability have not been physically verified.</p></section>\n<script type=\"module\" src=\"/app.mjs\"></script></main></body></html>\n"
+  },
+  {
+    "path": "/api/catalog",
+    "method": "GET",
+    "status": 401,
+    "response": {
+      "error": "Local fixture token required"
+    }
+  },
+  {
+    "path": "/api/catalog",
+    "method": "GET",
+    "status": 200,
+    "response": {
+      "version": "fixture-one",
+      "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+      "board": {
+        "id": "demo-mcu",
+        "voltage_mv": 3300,
+        "budget_ma": 100,
+        "dimensions_mm": [
+          32,
+          20,
+          8
+        ]
+      },
+      "modules": [
+        {
+          "id": "demo-moisture",
+          "capability": "soil moisture",
+          "voltage_mv": 3300,
+          "current_ma": 12,
+          "dimensions_mm": [
+            25,
+            12,
+            5
+          ],
+          "bus": "analog",
+          "address": null,
+          "wiring": {
+            "VCC": "3V3",
+            "GND": "GND",
+            "OUT": "A0"
+          }
+        },
+        {
+          "id": "demo-climate",
+          "capability": "temperature humidity",
+          "voltage_mv": 3300,
+          "current_ma": 10,
+          "dimensions_mm": [
+            20,
+            15,
+            7
+          ],
+          "bus": "i2c",
+          "address": 64,
+          "wiring": {
+            "VCC": "3V3",
+            "GND": "GND",
+            "SDA": "SDA",
+            "SCL": "SCL"
+          }
+        },
+        {
+          "id": "demo-display",
+          "capability": "display",
+          "voltage_mv": 3300,
+          "current_ma": 25,
+          "dimensions_mm": [
+            28,
+            20,
+            6
+          ],
+          "bus": "i2c",
+          "address": 60,
+          "wiring": {
+            "VCC": "3V3",
+            "GND": "GND",
+            "SDA": "SDA",
+            "SCL": "SCL"
+          }
+        },
+        {
+          "id": "demo-led",
+          "capability": "indicator light",
+          "voltage_mv": 3300,
+          "current_ma": 20,
+          "dimensions_mm": [
+            10,
+            10,
+            4
+          ],
+          "bus": "digital",
+          "address": null,
+          "wiring": {
+            "VCC": "3V3",
+            "GND": "GND",
+            "SIG": "D1"
+          }
+        },
+        {
+          "id": "demo-legacy",
+          "capability": "legacy sensor",
+          "voltage_mv": 5000,
+          "current_ma": 110,
+          "dimensions_mm": [
+            20,
+            20,
+            8
+          ],
+          "bus": "analog",
+          "address": null,
+          "wiring": {
+            "VCC": "3V3",
+            "GND": "GND",
+            "OUT": "A0"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "path": "/api/plans",
+    "method": "POST",
+    "status": 400,
+    "body": {
+      "prompt": "plant"
+    },
+    "response": {
+      "error": "A valid Idempotency-Key is required"
+    }
+  },
+  {
+    "path": "/api/plans",
+    "method": "POST",
+    "status": 201,
+    "body": {
+      "prompt": "Plant moisture monitor"
+    },
+    "response": {
+      "id": "a993068e-ad21-4b00-845e-cc878b2bb8a8",
+      "prompt": "Plant moisture monitor",
+      "version": 1,
+      "result": {
+        "status": "supported",
+        "build": {
+          "plan": {
+            "board": "demo-mcu",
+            "modules": [
+              "demo-moisture"
+            ],
+            "enclosure": {
+              "width_mm": 100,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "wires": [
+              {
+                "source": "demo-mcu.3V3",
+                "target": "demo-moisture.VCC"
+              },
+              {
+                "source": "demo-mcu.GND",
+                "target": "demo-moisture.GND"
+              },
+              {
+                "source": "demo-mcu.A0",
+                "target": "demo-moisture.OUT"
+              }
+            ]
+          },
+          "catalog_version": "fixture-one",
+          "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+          "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+          "layout_bounds_mm": [
+            66,
+            26,
+            14
+          ],
+          "assembly": [
+            "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+            "Connect demo-mcu.GND to demo-moisture.GND.",
+            "Connect demo-mcu.A0 to demo-moisture.OUT."
+          ],
+          "geometry": {
+            "kind": "enclosure-source-only",
+            "dimensions_mm": {
+              "width_mm": 100,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "clearance_mm": 3
+          },
+          "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+        },
+        "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n",
+        "transcript": [
+          {
+            "action": {
+              "name": "search_components",
+              "arguments": {
+                "query": ""
+              }
+            },
+            "response": {
+              "catalog_version": "fixture-one",
+              "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+              "board": {
+                "id": "demo-mcu",
+                "voltage_mv": 3300,
+                "budget_ma": 100,
+                "dimensions_mm": [
+                  32,
+                  20,
+                  8
+                ]
+              },
+              "modules": [
+                {
+                  "id": "demo-moisture",
+                  "capability": "soil moisture",
+                  "voltage_mv": 3300,
+                  "current_ma": 12,
+                  "dimensions_mm": [
+                    25,
+                    12,
+                    5
+                  ],
+                  "bus": "analog",
+                  "address": null,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "OUT": "A0"
+                  }
+                },
+                {
+                  "id": "demo-climate",
+                  "capability": "temperature humidity",
+                  "voltage_mv": 3300,
+                  "current_ma": 10,
+                  "dimensions_mm": [
+                    20,
+                    15,
+                    7
+                  ],
+                  "bus": "i2c",
+                  "address": 64,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "SDA": "SDA",
+                    "SCL": "SCL"
+                  }
+                },
+                {
+                  "id": "demo-display",
+                  "capability": "display",
+                  "voltage_mv": 3300,
+                  "current_ma": 25,
+                  "dimensions_mm": [
+                    28,
+                    20,
+                    6
+                  ],
+                  "bus": "i2c",
+                  "address": 60,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "SDA": "SDA",
+                    "SCL": "SCL"
+                  }
+                },
+                {
+                  "id": "demo-led",
+                  "capability": "indicator light",
+                  "voltage_mv": 3300,
+                  "current_ma": 20,
+                  "dimensions_mm": [
+                    10,
+                    10,
+                    4
+                  ],
+                  "bus": "digital",
+                  "address": null,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "SIG": "D1"
+                  }
+                },
+                {
+                  "id": "demo-legacy",
+                  "capability": "legacy sensor",
+                  "voltage_mv": 5000,
+                  "current_ma": 110,
+                  "dimensions_mm": [
+                    20,
+                    20,
+                    8
+                  ],
+                  "bus": "analog",
+                  "address": null,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "OUT": "A0"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "action": {
+              "name": "validate_build",
+              "arguments": {
+                "plan": {
+                  "board": "demo-mcu",
+                  "modules": [
+                    "demo-moisture"
+                  ],
+                  "enclosure": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "wires": [
+                    {
+                      "source": "demo-mcu.3V3",
+                      "target": "demo-moisture.VCC"
+                    },
+                    {
+                      "source": "demo-mcu.GND",
+                      "target": "demo-moisture.GND"
+                    },
+                    {
+                      "source": "demo-mcu.A0",
+                      "target": "demo-moisture.OUT"
+                    }
+                  ]
+                }
+              }
+            },
+            "response": {
+              "plan": {
+                "board": "demo-mcu",
+                "modules": [
+                  "demo-moisture"
+                ],
+                "enclosure": {
+                  "width_mm": 100,
+                  "depth_mm": 70,
+                  "height_mm": 30
+                },
+                "wires": [
+                  {
+                    "source": "demo-mcu.3V3",
+                    "target": "demo-moisture.VCC"
+                  },
+                  {
+                    "source": "demo-mcu.GND",
+                    "target": "demo-moisture.GND"
+                  },
+                  {
+                    "source": "demo-mcu.A0",
+                    "target": "demo-moisture.OUT"
+                  }
+                ]
+              },
+              "catalog_version": "fixture-one",
+              "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+              "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+              "layout_bounds_mm": [
+                66,
+                26,
+                14
+              ],
+              "assembly": [
+                "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                "Connect demo-mcu.GND to demo-moisture.GND.",
+                "Connect demo-mcu.A0 to demo-moisture.OUT."
+              ],
+              "geometry": {
+                "kind": "enclosure-source-only",
+                "dimensions_mm": {
+                  "width_mm": 100,
+                  "depth_mm": 70,
+                  "height_mm": 30
+                },
+                "clearance_mm": 3
+              },
+              "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+            }
+          },
+          {
+            "action": {
+              "name": "finish_build",
+              "arguments": {
+                "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+              }
+            },
+            "response": {
+              "status": "supported",
+              "build": {
+                "plan": {
+                  "board": "demo-mcu",
+                  "modules": [
+                    "demo-moisture"
+                  ],
+                  "enclosure": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "wires": [
+                    {
+                      "source": "demo-mcu.3V3",
+                      "target": "demo-moisture.VCC"
+                    },
+                    {
+                      "source": "demo-mcu.GND",
+                      "target": "demo-moisture.GND"
+                    },
+                    {
+                      "source": "demo-mcu.A0",
+                      "target": "demo-moisture.OUT"
+                    }
+                  ]
+                },
+                "catalog_version": "fixture-one",
+                "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+                "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+                "layout_bounds_mm": [
+                  66,
+                  26,
+                  14
+                ],
+                "assembly": [
+                  "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                  "Connect demo-mcu.GND to demo-moisture.GND.",
+                  "Connect demo-mcu.A0 to demo-moisture.OUT."
+                ],
+                "geometry": {
+                  "kind": "enclosure-source-only",
+                  "dimensions_mm": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "clearance_mm": 3
+                },
+                "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+              },
+              "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n"
+            }
+          }
+        ],
+        "external_llm_calls": 0
+      },
+      "replayed": false
+    }
+  },
+  {
+    "path": "/api/plans",
+    "method": "POST",
+    "status": 200,
+    "body": {
+      "prompt": "Plant moisture monitor"
+    },
+    "response": {
+      "id": "a993068e-ad21-4b00-845e-cc878b2bb8a8",
+      "prompt": "Plant moisture monitor",
+      "version": 1,
+      "result": {
+        "status": "supported",
+        "build": {
+          "plan": {
+            "board": "demo-mcu",
+            "modules": [
+              "demo-moisture"
+            ],
+            "enclosure": {
+              "width_mm": 100,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "wires": [
+              {
+                "source": "demo-mcu.3V3",
+                "target": "demo-moisture.VCC"
+              },
+              {
+                "source": "demo-mcu.GND",
+                "target": "demo-moisture.GND"
+              },
+              {
+                "source": "demo-mcu.A0",
+                "target": "demo-moisture.OUT"
+              }
+            ]
+          },
+          "catalog_version": "fixture-one",
+          "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+          "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+          "layout_bounds_mm": [
+            66,
+            26,
+            14
+          ],
+          "assembly": [
+            "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+            "Connect demo-mcu.GND to demo-moisture.GND.",
+            "Connect demo-mcu.A0 to demo-moisture.OUT."
+          ],
+          "geometry": {
+            "kind": "enclosure-source-only",
+            "dimensions_mm": {
+              "width_mm": 100,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "clearance_mm": 3
+          },
+          "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+        },
+        "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n",
+        "transcript": [
+          {
+            "action": {
+              "name": "search_components",
+              "arguments": {
+                "query": ""
+              }
+            },
+            "response": {
+              "catalog_version": "fixture-one",
+              "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+              "board": {
+                "id": "demo-mcu",
+                "voltage_mv": 3300,
+                "budget_ma": 100,
+                "dimensions_mm": [
+                  32,
+                  20,
+                  8
+                ]
+              },
+              "modules": [
+                {
+                  "id": "demo-moisture",
+                  "capability": "soil moisture",
+                  "voltage_mv": 3300,
+                  "current_ma": 12,
+                  "dimensions_mm": [
+                    25,
+                    12,
+                    5
+                  ],
+                  "bus": "analog",
+                  "address": null,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "OUT": "A0"
+                  }
+                },
+                {
+                  "id": "demo-climate",
+                  "capability": "temperature humidity",
+                  "voltage_mv": 3300,
+                  "current_ma": 10,
+                  "dimensions_mm": [
+                    20,
+                    15,
+                    7
+                  ],
+                  "bus": "i2c",
+                  "address": 64,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "SDA": "SDA",
+                    "SCL": "SCL"
+                  }
+                },
+                {
+                  "id": "demo-display",
+                  "capability": "display",
+                  "voltage_mv": 3300,
+                  "current_ma": 25,
+                  "dimensions_mm": [
+                    28,
+                    20,
+                    6
+                  ],
+                  "bus": "i2c",
+                  "address": 60,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "SDA": "SDA",
+                    "SCL": "SCL"
+                  }
+                },
+                {
+                  "id": "demo-led",
+                  "capability": "indicator light",
+                  "voltage_mv": 3300,
+                  "current_ma": 20,
+                  "dimensions_mm": [
+                    10,
+                    10,
+                    4
+                  ],
+                  "bus": "digital",
+                  "address": null,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "SIG": "D1"
+                  }
+                },
+                {
+                  "id": "demo-legacy",
+                  "capability": "legacy sensor",
+                  "voltage_mv": 5000,
+                  "current_ma": 110,
+                  "dimensions_mm": [
+                    20,
+                    20,
+                    8
+                  ],
+                  "bus": "analog",
+                  "address": null,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "OUT": "A0"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "action": {
+              "name": "validate_build",
+              "arguments": {
+                "plan": {
+                  "board": "demo-mcu",
+                  "modules": [
+                    "demo-moisture"
+                  ],
+                  "enclosure": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "wires": [
+                    {
+                      "source": "demo-mcu.3V3",
+                      "target": "demo-moisture.VCC"
+                    },
+                    {
+                      "source": "demo-mcu.GND",
+                      "target": "demo-moisture.GND"
+                    },
+                    {
+                      "source": "demo-mcu.A0",
+                      "target": "demo-moisture.OUT"
+                    }
+                  ]
+                }
+              }
+            },
+            "response": {
+              "plan": {
+                "board": "demo-mcu",
+                "modules": [
+                  "demo-moisture"
+                ],
+                "enclosure": {
+                  "width_mm": 100,
+                  "depth_mm": 70,
+                  "height_mm": 30
+                },
+                "wires": [
+                  {
+                    "source": "demo-mcu.3V3",
+                    "target": "demo-moisture.VCC"
+                  },
+                  {
+                    "source": "demo-mcu.GND",
+                    "target": "demo-moisture.GND"
+                  },
+                  {
+                    "source": "demo-mcu.A0",
+                    "target": "demo-moisture.OUT"
+                  }
+                ]
+              },
+              "catalog_version": "fixture-one",
+              "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+              "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+              "layout_bounds_mm": [
+                66,
+                26,
+                14
+              ],
+              "assembly": [
+                "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                "Connect demo-mcu.GND to demo-moisture.GND.",
+                "Connect demo-mcu.A0 to demo-moisture.OUT."
+              ],
+              "geometry": {
+                "kind": "enclosure-source-only",
+                "dimensions_mm": {
+                  "width_mm": 100,
+                  "depth_mm": 70,
+                  "height_mm": 30
+                },
+                "clearance_mm": 3
+              },
+              "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+            }
+          },
+          {
+            "action": {
+              "name": "finish_build",
+              "arguments": {
+                "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+              }
+            },
+            "response": {
+              "status": "supported",
+              "build": {
+                "plan": {
+                  "board": "demo-mcu",
+                  "modules": [
+                    "demo-moisture"
+                  ],
+                  "enclosure": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "wires": [
+                    {
+                      "source": "demo-mcu.3V3",
+                      "target": "demo-moisture.VCC"
+                    },
+                    {
+                      "source": "demo-mcu.GND",
+                      "target": "demo-moisture.GND"
+                    },
+                    {
+                      "source": "demo-mcu.A0",
+                      "target": "demo-moisture.OUT"
+                    }
+                  ]
+                },
+                "catalog_version": "fixture-one",
+                "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+                "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+                "layout_bounds_mm": [
+                  66,
+                  26,
+                  14
+                ],
+                "assembly": [
+                  "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                  "Connect demo-mcu.GND to demo-moisture.GND.",
+                  "Connect demo-mcu.A0 to demo-moisture.OUT."
+                ],
+                "geometry": {
+                  "kind": "enclosure-source-only",
+                  "dimensions_mm": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "clearance_mm": 3
+                },
+                "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+              },
+              "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n"
+            }
+          }
+        ],
+        "external_llm_calls": 0
+      },
+      "replayed": true
+    }
+  },
+  {
+    "path": "/api/plans",
+    "method": "POST",
+    "status": 409,
+    "body": {
+      "prompt": "climate"
+    },
+    "response": {
+      "error": "Request key used for different content"
+    }
+  },
+  {
+    "path": "/api/plans/a993068e-ad21-4b00-845e-cc878b2bb8a8",
+    "method": "PATCH",
+    "status": 200,
+    "body": {
+      "expected_version": 1,
+      "plan": {
+        "board": "demo-mcu",
+        "modules": [
+          "demo-moisture"
+        ],
+        "enclosure": {
+          "width_mm": 110,
+          "depth_mm": 70,
+          "height_mm": 30
+        },
+        "wires": [
+          {
+            "source": "demo-mcu.3V3",
+            "target": "demo-moisture.VCC"
+          },
+          {
+            "source": "demo-mcu.GND",
+            "target": "demo-moisture.GND"
+          },
+          {
+            "source": "demo-mcu.A0",
+            "target": "demo-moisture.OUT"
+          }
+        ]
+      }
+    },
+    "response": {
+      "id": "a993068e-ad21-4b00-845e-cc878b2bb8a8",
+      "prompt": "Plant moisture monitor",
+      "version": 2,
+      "result": {
+        "status": "supported",
+        "build": {
+          "plan": {
+            "board": "demo-mcu",
+            "modules": [
+              "demo-moisture"
+            ],
+            "enclosure": {
+              "width_mm": 110,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "wires": [
+              {
+                "source": "demo-mcu.3V3",
+                "target": "demo-moisture.VCC"
+              },
+              {
+                "source": "demo-mcu.GND",
+                "target": "demo-moisture.GND"
+              },
+              {
+                "source": "demo-mcu.A0",
+                "target": "demo-moisture.OUT"
+              }
+            ]
+          },
+          "catalog_version": "fixture-one",
+          "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+          "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+          "layout_bounds_mm": [
+            66,
+            26,
+            14
+          ],
+          "assembly": [
+            "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+            "Connect demo-mcu.GND to demo-moisture.GND.",
+            "Connect demo-mcu.A0 to demo-moisture.OUT."
+          ],
+          "geometry": {
+            "kind": "enclosure-source-only",
+            "dimensions_mm": {
+              "width_mm": 110,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "clearance_mm": 3
+          },
+          "validation_hash": "0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb"
+        },
+        "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb\ndifference() {\n  cube([110, 70, 30]);\n  translate([2, 2, 2]) cube([106, 66, 30]);\n}\n"
+      }
+    }
+  },
+  {
+    "path": "/api/plans/a993068e-ad21-4b00-845e-cc878b2bb8a8",
+    "method": "PATCH",
+    "status": 409,
+    "body": {
+      "expected_version": 1,
+      "plan": {
+        "board": "demo-mcu",
+        "modules": [
+          "demo-moisture"
+        ],
+        "enclosure": {
+          "width_mm": 110,
+          "depth_mm": 70,
+          "height_mm": 30
+        },
+        "wires": [
+          {
+            "source": "demo-mcu.3V3",
+            "target": "demo-moisture.VCC"
+          },
+          {
+            "source": "demo-mcu.GND",
+            "target": "demo-moisture.GND"
+          },
+          {
+            "source": "demo-mcu.A0",
+            "target": "demo-moisture.OUT"
+          }
+        ]
+      }
+    },
+    "response": {
+      "error": "Plan changed; reload before editing"
+    }
+  },
+  {
+    "path": "/api/plans/a993068e-ad21-4b00-845e-cc878b2bb8a8",
+    "method": "GET",
+    "status": 200,
+    "response": {
+      "id": "a993068e-ad21-4b00-845e-cc878b2bb8a8",
+      "prompt": "Plant moisture monitor",
+      "version": 2,
+      "result": {
+        "status": "supported",
+        "build": {
+          "plan": {
+            "board": "demo-mcu",
+            "modules": [
+              "demo-moisture"
+            ],
+            "enclosure": {
+              "width_mm": 110,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "wires": [
+              {
+                "source": "demo-mcu.3V3",
+                "target": "demo-moisture.VCC"
+              },
+              {
+                "source": "demo-mcu.GND",
+                "target": "demo-moisture.GND"
+              },
+              {
+                "source": "demo-mcu.A0",
+                "target": "demo-moisture.OUT"
+              }
+            ]
+          },
+          "catalog_version": "fixture-one",
+          "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+          "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+          "layout_bounds_mm": [
+            66,
+            26,
+            14
+          ],
+          "assembly": [
+            "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+            "Connect demo-mcu.GND to demo-moisture.GND.",
+            "Connect demo-mcu.A0 to demo-moisture.OUT."
+          ],
+          "geometry": {
+            "kind": "enclosure-source-only",
+            "dimensions_mm": {
+              "width_mm": 110,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "clearance_mm": 3
+          },
+          "validation_hash": "0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb"
+        },
+        "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb\ndifference() {\n  cube([110, 70, 30]);\n  translate([2, 2, 2]) cube([106, 66, 30]);\n}\n"
+      }
+    }
+  },
+  {
+    "path": "/api/plans/a993068e-ad21-4b00-845e-cc878b2bb8a8/history",
+    "method": "GET",
+    "status": 200,
+    "response": [
+      {
+        "version": 1,
+        "result": {
+          "status": "supported",
+          "build": {
+            "plan": {
+              "board": "demo-mcu",
+              "modules": [
+                "demo-moisture"
+              ],
+              "enclosure": {
+                "width_mm": 100,
+                "depth_mm": 70,
+                "height_mm": 30
+              },
+              "wires": [
+                {
+                  "source": "demo-mcu.3V3",
+                  "target": "demo-moisture.VCC"
+                },
+                {
+                  "source": "demo-mcu.GND",
+                  "target": "demo-moisture.GND"
+                },
+                {
+                  "source": "demo-mcu.A0",
+                  "target": "demo-moisture.OUT"
+                }
+              ]
+            },
+            "catalog_version": "fixture-one",
+            "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+            "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+            "layout_bounds_mm": [
+              66,
+              26,
+              14
+            ],
+            "assembly": [
+              "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+              "Connect demo-mcu.GND to demo-moisture.GND.",
+              "Connect demo-mcu.A0 to demo-moisture.OUT."
+            ],
+            "geometry": {
+              "kind": "enclosure-source-only",
+              "dimensions_mm": {
+                "width_mm": 100,
+                "depth_mm": 70,
+                "height_mm": 30
+              },
+              "clearance_mm": 3
+            },
+            "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+          },
+          "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n",
+          "transcript": [
+            {
+              "action": {
+                "name": "search_components",
+                "arguments": {
+                  "query": ""
+                }
+              },
+              "response": {
+                "catalog_version": "fixture-one",
+                "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+                "board": {
+                  "id": "demo-mcu",
+                  "voltage_mv": 3300,
+                  "budget_ma": 100,
+                  "dimensions_mm": [
+                    32,
+                    20,
+                    8
+                  ]
+                },
+                "modules": [
+                  {
+                    "id": "demo-moisture",
+                    "capability": "soil moisture",
+                    "voltage_mv": 3300,
+                    "current_ma": 12,
+                    "dimensions_mm": [
+                      25,
+                      12,
+                      5
+                    ],
+                    "bus": "analog",
+                    "address": null,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "OUT": "A0"
+                    }
+                  },
+                  {
+                    "id": "demo-climate",
+                    "capability": "temperature humidity",
+                    "voltage_mv": 3300,
+                    "current_ma": 10,
+                    "dimensions_mm": [
+                      20,
+                      15,
+                      7
+                    ],
+                    "bus": "i2c",
+                    "address": 64,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "SDA": "SDA",
+                      "SCL": "SCL"
+                    }
+                  },
+                  {
+                    "id": "demo-display",
+                    "capability": "display",
+                    "voltage_mv": 3300,
+                    "current_ma": 25,
+                    "dimensions_mm": [
+                      28,
+                      20,
+                      6
+                    ],
+                    "bus": "i2c",
+                    "address": 60,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "SDA": "SDA",
+                      "SCL": "SCL"
+                    }
+                  },
+                  {
+                    "id": "demo-led",
+                    "capability": "indicator light",
+                    "voltage_mv": 3300,
+                    "current_ma": 20,
+                    "dimensions_mm": [
+                      10,
+                      10,
+                      4
+                    ],
+                    "bus": "digital",
+                    "address": null,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "SIG": "D1"
+                    }
+                  },
+                  {
+                    "id": "demo-legacy",
+                    "capability": "legacy sensor",
+                    "voltage_mv": 5000,
+                    "current_ma": 110,
+                    "dimensions_mm": [
+                      20,
+                      20,
+                      8
+                    ],
+                    "bus": "analog",
+                    "address": null,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "OUT": "A0"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "action": {
+                "name": "validate_build",
+                "arguments": {
+                  "plan": {
+                    "board": "demo-mcu",
+                    "modules": [
+                      "demo-moisture"
+                    ],
+                    "enclosure": {
+                      "width_mm": 100,
+                      "depth_mm": 70,
+                      "height_mm": 30
+                    },
+                    "wires": [
+                      {
+                        "source": "demo-mcu.3V3",
+                        "target": "demo-moisture.VCC"
+                      },
+                      {
+                        "source": "demo-mcu.GND",
+                        "target": "demo-moisture.GND"
+                      },
+                      {
+                        "source": "demo-mcu.A0",
+                        "target": "demo-moisture.OUT"
+                      }
+                    ]
+                  }
+                }
+              },
+              "response": {
+                "plan": {
+                  "board": "demo-mcu",
+                  "modules": [
+                    "demo-moisture"
+                  ],
+                  "enclosure": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "wires": [
+                    {
+                      "source": "demo-mcu.3V3",
+                      "target": "demo-moisture.VCC"
+                    },
+                    {
+                      "source": "demo-mcu.GND",
+                      "target": "demo-moisture.GND"
+                    },
+                    {
+                      "source": "demo-mcu.A0",
+                      "target": "demo-moisture.OUT"
+                    }
+                  ]
+                },
+                "catalog_version": "fixture-one",
+                "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+                "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+                "layout_bounds_mm": [
+                  66,
+                  26,
+                  14
+                ],
+                "assembly": [
+                  "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                  "Connect demo-mcu.GND to demo-moisture.GND.",
+                  "Connect demo-mcu.A0 to demo-moisture.OUT."
+                ],
+                "geometry": {
+                  "kind": "enclosure-source-only",
+                  "dimensions_mm": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "clearance_mm": 3
+                },
+                "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+              }
+            },
+            {
+              "action": {
+                "name": "finish_build",
+                "arguments": {
+                  "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+                }
+              },
+              "response": {
+                "status": "supported",
+                "build": {
+                  "plan": {
+                    "board": "demo-mcu",
+                    "modules": [
+                      "demo-moisture"
+                    ],
+                    "enclosure": {
+                      "width_mm": 100,
+                      "depth_mm": 70,
+                      "height_mm": 30
+                    },
+                    "wires": [
+                      {
+                        "source": "demo-mcu.3V3",
+                        "target": "demo-moisture.VCC"
+                      },
+                      {
+                        "source": "demo-mcu.GND",
+                        "target": "demo-moisture.GND"
+                      },
+                      {
+                        "source": "demo-mcu.A0",
+                        "target": "demo-moisture.OUT"
+                      }
+                    ]
+                  },
+                  "catalog_version": "fixture-one",
+                  "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+                  "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+                  "layout_bounds_mm": [
+                    66,
+                    26,
+                    14
+                  ],
+                  "assembly": [
+                    "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                    "Connect demo-mcu.GND to demo-moisture.GND.",
+                    "Connect demo-mcu.A0 to demo-moisture.OUT."
+                  ],
+                  "geometry": {
+                    "kind": "enclosure-source-only",
+                    "dimensions_mm": {
+                      "width_mm": 100,
+                      "depth_mm": 70,
+                      "height_mm": 30
+                    },
+                    "clearance_mm": 3
+                  },
+                  "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+                },
+                "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n"
+              }
+            }
+          ],
+          "external_llm_calls": 0
+        }
+      },
+      {
+        "version": 2,
+        "result": {
+          "status": "supported",
+          "build": {
+            "plan": {
+              "board": "demo-mcu",
+              "modules": [
+                "demo-moisture"
+              ],
+              "enclosure": {
+                "width_mm": 110,
+                "depth_mm": 70,
+                "height_mm": 30
+              },
+              "wires": [
+                {
+                  "source": "demo-mcu.3V3",
+                  "target": "demo-moisture.VCC"
+                },
+                {
+                  "source": "demo-mcu.GND",
+                  "target": "demo-moisture.GND"
+                },
+                {
+                  "source": "demo-mcu.A0",
+                  "target": "demo-moisture.OUT"
+                }
+              ]
+            },
+            "catalog_version": "fixture-one",
+            "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+            "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+            "layout_bounds_mm": [
+              66,
+              26,
+              14
+            ],
+            "assembly": [
+              "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+              "Connect demo-mcu.GND to demo-moisture.GND.",
+              "Connect demo-mcu.A0 to demo-moisture.OUT."
+            ],
+            "geometry": {
+              "kind": "enclosure-source-only",
+              "dimensions_mm": {
+                "width_mm": 110,
+                "depth_mm": 70,
+                "height_mm": 30
+              },
+              "clearance_mm": 3
+            },
+            "validation_hash": "0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb"
+          },
+          "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb\ndifference() {\n  cube([110, 70, 30]);\n  translate([2, 2, 2]) cube([106, 66, 30]);\n}\n"
+        }
+      }
+    ]
+  },
+  {
+    "path": "/api/plans/a993068e-ad21-4b00-845e-cc878b2bb8a8",
+    "method": "PATCH",
+    "status": 422,
+    "body": {
+      "expected_version": 2,
+      "plan": {
+        "board": "demo-mcu",
+        "modules": [
+          "demo-moisture"
+        ],
+        "enclosure": {
+          "width_mm": 110,
+          "depth_mm": 70,
+          "height_mm": 30
+        },
+        "wires": []
+      }
+    },
+    "response": {
+      "error": "wiring must exactly match catalog fixture rules"
+    }
+  },
+  {
+    "path": "/api/plans/a993068e-ad21-4b00-845e-cc878b2bb8a8/history",
+    "method": "GET",
+    "status": 200,
+    "response": [
+      {
+        "version": 1,
+        "result": {
+          "status": "supported",
+          "build": {
+            "plan": {
+              "board": "demo-mcu",
+              "modules": [
+                "demo-moisture"
+              ],
+              "enclosure": {
+                "width_mm": 100,
+                "depth_mm": 70,
+                "height_mm": 30
+              },
+              "wires": [
+                {
+                  "source": "demo-mcu.3V3",
+                  "target": "demo-moisture.VCC"
+                },
+                {
+                  "source": "demo-mcu.GND",
+                  "target": "demo-moisture.GND"
+                },
+                {
+                  "source": "demo-mcu.A0",
+                  "target": "demo-moisture.OUT"
+                }
+              ]
+            },
+            "catalog_version": "fixture-one",
+            "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+            "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+            "layout_bounds_mm": [
+              66,
+              26,
+              14
+            ],
+            "assembly": [
+              "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+              "Connect demo-mcu.GND to demo-moisture.GND.",
+              "Connect demo-mcu.A0 to demo-moisture.OUT."
+            ],
+            "geometry": {
+              "kind": "enclosure-source-only",
+              "dimensions_mm": {
+                "width_mm": 100,
+                "depth_mm": 70,
+                "height_mm": 30
+              },
+              "clearance_mm": 3
+            },
+            "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+          },
+          "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n",
+          "transcript": [
+            {
+              "action": {
+                "name": "search_components",
+                "arguments": {
+                  "query": ""
+                }
+              },
+              "response": {
+                "catalog_version": "fixture-one",
+                "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+                "board": {
+                  "id": "demo-mcu",
+                  "voltage_mv": 3300,
+                  "budget_ma": 100,
+                  "dimensions_mm": [
+                    32,
+                    20,
+                    8
+                  ]
+                },
+                "modules": [
+                  {
+                    "id": "demo-moisture",
+                    "capability": "soil moisture",
+                    "voltage_mv": 3300,
+                    "current_ma": 12,
+                    "dimensions_mm": [
+                      25,
+                      12,
+                      5
+                    ],
+                    "bus": "analog",
+                    "address": null,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "OUT": "A0"
+                    }
+                  },
+                  {
+                    "id": "demo-climate",
+                    "capability": "temperature humidity",
+                    "voltage_mv": 3300,
+                    "current_ma": 10,
+                    "dimensions_mm": [
+                      20,
+                      15,
+                      7
+                    ],
+                    "bus": "i2c",
+                    "address": 64,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "SDA": "SDA",
+                      "SCL": "SCL"
+                    }
+                  },
+                  {
+                    "id": "demo-display",
+                    "capability": "display",
+                    "voltage_mv": 3300,
+                    "current_ma": 25,
+                    "dimensions_mm": [
+                      28,
+                      20,
+                      6
+                    ],
+                    "bus": "i2c",
+                    "address": 60,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "SDA": "SDA",
+                      "SCL": "SCL"
+                    }
+                  },
+                  {
+                    "id": "demo-led",
+                    "capability": "indicator light",
+                    "voltage_mv": 3300,
+                    "current_ma": 20,
+                    "dimensions_mm": [
+                      10,
+                      10,
+                      4
+                    ],
+                    "bus": "digital",
+                    "address": null,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "SIG": "D1"
+                    }
+                  },
+                  {
+                    "id": "demo-legacy",
+                    "capability": "legacy sensor",
+                    "voltage_mv": 5000,
+                    "current_ma": 110,
+                    "dimensions_mm": [
+                      20,
+                      20,
+                      8
+                    ],
+                    "bus": "analog",
+                    "address": null,
+                    "wiring": {
+                      "VCC": "3V3",
+                      "GND": "GND",
+                      "OUT": "A0"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "action": {
+                "name": "validate_build",
+                "arguments": {
+                  "plan": {
+                    "board": "demo-mcu",
+                    "modules": [
+                      "demo-moisture"
+                    ],
+                    "enclosure": {
+                      "width_mm": 100,
+                      "depth_mm": 70,
+                      "height_mm": 30
+                    },
+                    "wires": [
+                      {
+                        "source": "demo-mcu.3V3",
+                        "target": "demo-moisture.VCC"
+                      },
+                      {
+                        "source": "demo-mcu.GND",
+                        "target": "demo-moisture.GND"
+                      },
+                      {
+                        "source": "demo-mcu.A0",
+                        "target": "demo-moisture.OUT"
+                      }
+                    ]
+                  }
+                }
+              },
+              "response": {
+                "plan": {
+                  "board": "demo-mcu",
+                  "modules": [
+                    "demo-moisture"
+                  ],
+                  "enclosure": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "wires": [
+                    {
+                      "source": "demo-mcu.3V3",
+                      "target": "demo-moisture.VCC"
+                    },
+                    {
+                      "source": "demo-mcu.GND",
+                      "target": "demo-moisture.GND"
+                    },
+                    {
+                      "source": "demo-mcu.A0",
+                      "target": "demo-moisture.OUT"
+                    }
+                  ]
+                },
+                "catalog_version": "fixture-one",
+                "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+                "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+                "layout_bounds_mm": [
+                  66,
+                  26,
+                  14
+                ],
+                "assembly": [
+                  "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                  "Connect demo-mcu.GND to demo-moisture.GND.",
+                  "Connect demo-mcu.A0 to demo-moisture.OUT."
+                ],
+                "geometry": {
+                  "kind": "enclosure-source-only",
+                  "dimensions_mm": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "clearance_mm": 3
+                },
+                "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+              }
+            },
+            {
+              "action": {
+                "name": "finish_build",
+                "arguments": {
+                  "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+                }
+              },
+              "response": {
+                "status": "supported",
+                "build": {
+                  "plan": {
+                    "board": "demo-mcu",
+                    "modules": [
+                      "demo-moisture"
+                    ],
+                    "enclosure": {
+                      "width_mm": 100,
+                      "depth_mm": 70,
+                      "height_mm": 30
+                    },
+                    "wires": [
+                      {
+                        "source": "demo-mcu.3V3",
+                        "target": "demo-moisture.VCC"
+                      },
+                      {
+                        "source": "demo-mcu.GND",
+                        "target": "demo-moisture.GND"
+                      },
+                      {
+                        "source": "demo-mcu.A0",
+                        "target": "demo-moisture.OUT"
+                      }
+                    ]
+                  },
+                  "catalog_version": "fixture-one",
+                  "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+                  "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+                  "layout_bounds_mm": [
+                    66,
+                    26,
+                    14
+                  ],
+                  "assembly": [
+                    "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                    "Connect demo-mcu.GND to demo-moisture.GND.",
+                    "Connect demo-mcu.A0 to demo-moisture.OUT."
+                  ],
+                  "geometry": {
+                    "kind": "enclosure-source-only",
+                    "dimensions_mm": {
+                      "width_mm": 100,
+                      "depth_mm": 70,
+                      "height_mm": 30
+                    },
+                    "clearance_mm": 3
+                  },
+                  "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+                },
+                "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n"
+              }
+            }
+          ],
+          "external_llm_calls": 0
+        }
+      },
+      {
+        "version": 2,
+        "result": {
+          "status": "supported",
+          "build": {
+            "plan": {
+              "board": "demo-mcu",
+              "modules": [
+                "demo-moisture"
+              ],
+              "enclosure": {
+                "width_mm": 110,
+                "depth_mm": 70,
+                "height_mm": 30
+              },
+              "wires": [
+                {
+                  "source": "demo-mcu.3V3",
+                  "target": "demo-moisture.VCC"
+                },
+                {
+                  "source": "demo-mcu.GND",
+                  "target": "demo-moisture.GND"
+                },
+                {
+                  "source": "demo-mcu.A0",
+                  "target": "demo-moisture.OUT"
+                }
+              ]
+            },
+            "catalog_version": "fixture-one",
+            "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+            "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+            "layout_bounds_mm": [
+              66,
+              26,
+              14
+            ],
+            "assembly": [
+              "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+              "Connect demo-mcu.GND to demo-moisture.GND.",
+              "Connect demo-mcu.A0 to demo-moisture.OUT."
+            ],
+            "geometry": {
+              "kind": "enclosure-source-only",
+              "dimensions_mm": {
+                "width_mm": 110,
+                "depth_mm": 70,
+                "height_mm": 30
+              },
+              "clearance_mm": 3
+            },
+            "validation_hash": "0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb"
+          },
+          "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb\ndifference() {\n  cube([110, 70, 30]);\n  translate([2, 2, 2]) cube([106, 66, 30]);\n}\n"
+        }
+      }
+    ]
+  },
+  {
+    "path": "/api/plans/a993068e-ad21-4b00-845e-cc878b2bb8a8/enclosure.scad",
+    "method": "GET",
+    "status": 200,
+    "response": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb\ndifference() {\n  cube([110, 70, 30]);\n  translate([2, 2, 2]) cube([106, 66, 30]);\n}\n"
+  },
+  {
+    "path": "/api/plans",
+    "method": "POST",
+    "status": 201,
+    "body": {
+      "prompt": "Battery motor robot"
+    },
+    "response": {
+      "id": "10bc584b-de86-4b89-a4ef-77e027d30b03",
+      "prompt": "Battery motor robot",
+      "version": 1,
+      "result": {
+        "status": "unsupported",
+        "reason": "This requirement is outside the authored fixture component library.",
+        "transcript": [
+          {
+            "action": {
+              "name": "report_unsupported",
+              "arguments": {
+                "reason": "This requirement is outside the authored fixture component library."
+              }
+            },
+            "response": {
+              "status": "unsupported",
+              "reason": "This requirement is outside the authored fixture component library."
+            }
+          }
+        ],
+        "external_llm_calls": 0
+      },
+      "replayed": false
+    }
+  },
+  {
+    "path": "/api/plans/10bc584b-de86-4b89-a4ef-77e027d30b03/enclosure.scad",
+    "method": "GET",
+    "status": 409,
+    "response": {
+      "error": "Unsupported build has no geometry source"
+    }
+  },
+  {
+    "path": "/api/plans",
+    "method": "POST",
+    "status": 502,
+    "body": {
+      "prompt": "timeout plant"
+    },
+    "response": {
+      "error": "HTTP Error 503: Service Unavailable"
+    }
+  },
+  {
+    "path": "/api/plans",
+    "method": "POST",
+    "status": 502,
+    "body": {
+      "prompt": "loop plant"
+    },
+    "response": {
+      "error": "tool step budget exhausted"
+    }
+  },
+  {
+    "path": "/api/plans/a993068e-ad21-4b00-845e-cc878b2bb8a8",
+    "method": "GET",
+    "status": 200,
+    "response": {
+      "id": "a993068e-ad21-4b00-845e-cc878b2bb8a8",
+      "prompt": "Plant moisture monitor",
+      "version": 2,
+      "result": {
+        "status": "supported",
+        "build": {
+          "plan": {
+            "board": "demo-mcu",
+            "modules": [
+              "demo-moisture"
+            ],
+            "enclosure": {
+              "width_mm": 110,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "wires": [
+              {
+                "source": "demo-mcu.3V3",
+                "target": "demo-moisture.VCC"
+              },
+              {
+                "source": "demo-mcu.GND",
+                "target": "demo-moisture.GND"
+              },
+              {
+                "source": "demo-mcu.A0",
+                "target": "demo-moisture.OUT"
+              }
+            ]
+          },
+          "catalog_version": "fixture-one",
+          "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+          "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+          "layout_bounds_mm": [
+            66,
+            26,
+            14
+          ],
+          "assembly": [
+            "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+            "Connect demo-mcu.GND to demo-moisture.GND.",
+            "Connect demo-mcu.A0 to demo-moisture.OUT."
+          ],
+          "geometry": {
+            "kind": "enclosure-source-only",
+            "dimensions_mm": {
+              "width_mm": 110,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "clearance_mm": 3
+          },
+          "validation_hash": "0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb"
+        },
+        "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb\ndifference() {\n  cube([110, 70, 30]);\n  translate([2, 2, 2]) cube([106, 66, 30]);\n}\n"
+      }
+    }
+  },
+  {
+    "path": "/api/plans",
+    "method": "POST",
+    "status": 200,
+    "body": {
+      "prompt": "Plant moisture monitor"
+    },
+    "response": {
+      "id": "a993068e-ad21-4b00-845e-cc878b2bb8a8",
+      "prompt": "Plant moisture monitor",
+      "version": 2,
+      "result": {
+        "status": "supported",
+        "build": {
+          "plan": {
+            "board": "demo-mcu",
+            "modules": [
+              "demo-moisture"
+            ],
+            "enclosure": {
+              "width_mm": 110,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "wires": [
+              {
+                "source": "demo-mcu.3V3",
+                "target": "demo-moisture.VCC"
+              },
+              {
+                "source": "demo-mcu.GND",
+                "target": "demo-moisture.GND"
+              },
+              {
+                "source": "demo-mcu.A0",
+                "target": "demo-moisture.OUT"
+              }
+            ]
+          },
+          "catalog_version": "fixture-one",
+          "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+          "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+          "layout_bounds_mm": [
+            66,
+            26,
+            14
+          ],
+          "assembly": [
+            "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+            "Connect demo-mcu.GND to demo-moisture.GND.",
+            "Connect demo-mcu.A0 to demo-moisture.OUT."
+          ],
+          "geometry": {
+            "kind": "enclosure-source-only",
+            "dimensions_mm": {
+              "width_mm": 110,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "clearance_mm": 3
+          },
+          "validation_hash": "0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb"
+        },
+        "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 0d32efaba8771d0a2627f8f2e8e23ecf05f4ab67a987ffad31b1d480df817efb\ndifference() {\n  cube([110, 70, 30]);\n  translate([2, 2, 2]) cube([106, 66, 30]);\n}\n"
+      },
+      "replayed": true
+    }
+  },
+  {
+    "path": "/api/plans",
+    "method": "POST",
+    "status": 201,
+    "body": {
+      "prompt": "Plant moisture monitor 🌱"
+    },
+    "response": {
+      "id": "02775eb6-bb34-4f6d-92fb-44eeca69a6da",
+      "prompt": "Plant moisture monitor 🌱",
+      "version": 1,
+      "result": {
+        "status": "supported",
+        "build": {
+          "plan": {
+            "board": "demo-mcu",
+            "modules": [
+              "demo-moisture"
+            ],
+            "enclosure": {
+              "width_mm": 100,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "wires": [
+              {
+                "source": "demo-mcu.3V3",
+                "target": "demo-moisture.VCC"
+              },
+              {
+                "source": "demo-mcu.GND",
+                "target": "demo-moisture.GND"
+              },
+              {
+                "source": "demo-mcu.A0",
+                "target": "demo-moisture.OUT"
+              }
+            ]
+          },
+          "catalog_version": "fixture-one",
+          "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+          "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+          "layout_bounds_mm": [
+            66,
+            26,
+            14
+          ],
+          "assembly": [
+            "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+            "Connect demo-mcu.GND to demo-moisture.GND.",
+            "Connect demo-mcu.A0 to demo-moisture.OUT."
+          ],
+          "geometry": {
+            "kind": "enclosure-source-only",
+            "dimensions_mm": {
+              "width_mm": 100,
+              "depth_mm": 70,
+              "height_mm": 30
+            },
+            "clearance_mm": 3
+          },
+          "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+        },
+        "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n",
+        "transcript": [
+          {
+            "action": {
+              "name": "search_components",
+              "arguments": {
+                "query": ""
+              }
+            },
+            "response": {
+              "catalog_version": "fixture-one",
+              "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+              "board": {
+                "id": "demo-mcu",
+                "voltage_mv": 3300,
+                "budget_ma": 100,
+                "dimensions_mm": [
+                  32,
+                  20,
+                  8
+                ]
+              },
+              "modules": [
+                {
+                  "id": "demo-moisture",
+                  "capability": "soil moisture",
+                  "voltage_mv": 3300,
+                  "current_ma": 12,
+                  "dimensions_mm": [
+                    25,
+                    12,
+                    5
+                  ],
+                  "bus": "analog",
+                  "address": null,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "OUT": "A0"
+                  }
+                },
+                {
+                  "id": "demo-climate",
+                  "capability": "temperature humidity",
+                  "voltage_mv": 3300,
+                  "current_ma": 10,
+                  "dimensions_mm": [
+                    20,
+                    15,
+                    7
+                  ],
+                  "bus": "i2c",
+                  "address": 64,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "SDA": "SDA",
+                    "SCL": "SCL"
+                  }
+                },
+                {
+                  "id": "demo-display",
+                  "capability": "display",
+                  "voltage_mv": 3300,
+                  "current_ma": 25,
+                  "dimensions_mm": [
+                    28,
+                    20,
+                    6
+                  ],
+                  "bus": "i2c",
+                  "address": 60,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "SDA": "SDA",
+                    "SCL": "SCL"
+                  }
+                },
+                {
+                  "id": "demo-led",
+                  "capability": "indicator light",
+                  "voltage_mv": 3300,
+                  "current_ma": 20,
+                  "dimensions_mm": [
+                    10,
+                    10,
+                    4
+                  ],
+                  "bus": "digital",
+                  "address": null,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "SIG": "D1"
+                  }
+                },
+                {
+                  "id": "demo-legacy",
+                  "capability": "legacy sensor",
+                  "voltage_mv": 5000,
+                  "current_ma": 110,
+                  "dimensions_mm": [
+                    20,
+                    20,
+                    8
+                  ],
+                  "bus": "analog",
+                  "address": null,
+                  "wiring": {
+                    "VCC": "3V3",
+                    "GND": "GND",
+                    "OUT": "A0"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "action": {
+              "name": "validate_build",
+              "arguments": {
+                "plan": {
+                  "board": "demo-mcu",
+                  "modules": [
+                    "demo-moisture"
+                  ],
+                  "enclosure": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "wires": [
+                    {
+                      "source": "demo-mcu.3V3",
+                      "target": "demo-moisture.VCC"
+                    },
+                    {
+                      "source": "demo-mcu.GND",
+                      "target": "demo-moisture.GND"
+                    },
+                    {
+                      "source": "demo-mcu.A0",
+                      "target": "demo-moisture.OUT"
+                    }
+                  ]
+                }
+              }
+            },
+            "response": {
+              "plan": {
+                "board": "demo-mcu",
+                "modules": [
+                  "demo-moisture"
+                ],
+                "enclosure": {
+                  "width_mm": 100,
+                  "depth_mm": 70,
+                  "height_mm": 30
+                },
+                "wires": [
+                  {
+                    "source": "demo-mcu.3V3",
+                    "target": "demo-moisture.VCC"
+                  },
+                  {
+                    "source": "demo-mcu.GND",
+                    "target": "demo-moisture.GND"
+                  },
+                  {
+                    "source": "demo-mcu.A0",
+                    "target": "demo-moisture.OUT"
+                  }
+                ]
+              },
+              "catalog_version": "fixture-one",
+              "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+              "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+              "layout_bounds_mm": [
+                66,
+                26,
+                14
+              ],
+              "assembly": [
+                "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                "Connect demo-mcu.GND to demo-moisture.GND.",
+                "Connect demo-mcu.A0 to demo-moisture.OUT."
+              ],
+              "geometry": {
+                "kind": "enclosure-source-only",
+                "dimensions_mm": {
+                  "width_mm": 100,
+                  "depth_mm": 70,
+                  "height_mm": 30
+                },
+                "clearance_mm": 3
+              },
+              "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+            }
+          },
+          {
+            "action": {
+              "name": "finish_build",
+              "arguments": {
+                "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+              }
+            },
+            "response": {
+              "status": "supported",
+              "build": {
+                "plan": {
+                  "board": "demo-mcu",
+                  "modules": [
+                    "demo-moisture"
+                  ],
+                  "enclosure": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "wires": [
+                    {
+                      "source": "demo-mcu.3V3",
+                      "target": "demo-moisture.VCC"
+                    },
+                    {
+                      "source": "demo-mcu.GND",
+                      "target": "demo-moisture.GND"
+                    },
+                    {
+                      "source": "demo-mcu.A0",
+                      "target": "demo-moisture.OUT"
+                    }
+                  ]
+                },
+                "catalog_version": "fixture-one",
+                "catalog_hash": "60ea306b79c0b8c4b8100575bd3edecb56f380d513191254516b40d5b688e13e",
+                "scope": "Synthetic parts and compatibility rules only; not electrically tested hardware.",
+                "layout_bounds_mm": [
+                  66,
+                  26,
+                  14
+                ],
+                "assembly": [
+                  "Connect demo-mcu.3V3 to demo-moisture.VCC.",
+                  "Connect demo-mcu.GND to demo-moisture.GND.",
+                  "Connect demo-mcu.A0 to demo-moisture.OUT."
+                ],
+                "geometry": {
+                  "kind": "enclosure-source-only",
+                  "dimensions_mm": {
+                    "width_mm": 100,
+                    "depth_mm": 70,
+                    "height_mm": 30
+                  },
+                  "clearance_mm": 3
+                },
+                "validation_hash": "532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c"
+              },
+              "enclosure_scad": "// Fixture enclosure source only: no CAD renderer or physical test executed.\n// validation 532be93ec8e86caf9c4d733c9758148d7078adfdc33c71bae28ecd849b549c9c\ndifference() {\n  cube([100, 70, 30]);\n  translate([2, 2, 2]) cube([96, 66, 30]);\n}\n"
+            }
+          }
+        ],
+        "external_llm_calls": 0
+      },
+      "replayed": false
+    }
+  }
+]

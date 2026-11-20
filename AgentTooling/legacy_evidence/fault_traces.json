@@ -1,0 +1,806 @@
+[
+  {
+    "fault": "unknown_tool",
+    "passed": true,
+    "expected_status": "failed",
+    "state": {
+      "task": {
+        "id": "thermal_0",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_0_base",
+        "variant": "thermal_0_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 1,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "invented_tool",
+        "arguments": {
+          "query": "sensor temperature drift calibrated residual",
+          "k": 3
+        },
+        "report": {}
+      },
+      "observations": [],
+      "loaded": {},
+      "status": "failed",
+      "error": "ValueError: unknown tool",
+      "checkpoint_resumes": 0
+    }
+  },
+  {
+    "fault": "missing_argument",
+    "passed": true,
+    "expected_status": "failed",
+    "state": {
+      "task": {
+        "id": "thermal_0",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_0_base",
+        "variant": "thermal_0_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 1,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "search_knowledge",
+        "arguments": {},
+        "report": {}
+      },
+      "observations": [],
+      "loaded": {},
+      "status": "failed",
+      "error": "ValidationError: 1 validation error for SearchArgs\nquery\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing",
+      "checkpoint_resumes": 0
+    }
+  },
+  {
+    "fault": "missing_run",
+    "passed": true,
+    "expected_status": "failed",
+    "state": {
+      "task": {
+        "id": "thermal_0",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_0_base",
+        "variant": "thermal_0_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 2,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "load_run",
+        "arguments": {
+          "run_id": "does_not_exist"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        }
+      ],
+      "loaded": {},
+      "status": "failed",
+      "error": "ValueError: run not found",
+      "checkpoint_resumes": 1
+    }
+  },
+  {
+    "fault": "invalid_citation",
+    "passed": true,
+    "expected_status": "failed",
+    "state": {
+      "task": {
+        "id": "thermal_0",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_0_base",
+        "variant": "thermal_0_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 4,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_0_base",
+          "variant_id": "thermal_0_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_0_base",
+            "samples": 32,
+            "mean_mse": 0.494684147125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_0_candidate",
+            "samples": 32,
+            "mean_mse": 0.34627890298749997
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate",
+            "baseline_mse": 0.494684147125,
+            "variant_mse": 0.34627890298749997,
+            "samples_per_run": 32,
+            "improvement_pct": 30.0
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_0_base": {
+          "run_id": "thermal_0_base",
+          "samples": 32,
+          "mean_mse": 0.494684147125
+        },
+        "thermal_0_candidate": {
+          "run_id": "thermal_0_candidate",
+          "samples": 32,
+          "mean_mse": 0.34627890298749997
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_0_base",
+        "variant_id": "thermal_0_candidate",
+        "baseline_mse": 0.494684147125,
+        "variant_mse": 0.34627890298749997,
+        "samples_per_run": 32,
+        "improvement_pct": 30.0
+      },
+      "status": "failed",
+      "error": "ValueError: citation not observed by this episode",
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "fault": "wrong_metric",
+    "passed": true,
+    "expected_status": "failed",
+    "state": {
+      "task": {
+        "id": "thermal_0",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_0_base",
+        "variant": "thermal_0_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 4,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_0_base",
+          "variant_id": "thermal_0_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_0_base",
+            "samples": 32,
+            "mean_mse": 0.494684147125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_0_candidate",
+            "samples": 32,
+            "mean_mse": 0.34627890298749997
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate",
+            "baseline_mse": 0.494684147125,
+            "variant_mse": 0.34627890298749997,
+            "samples_per_run": 32,
+            "improvement_pct": 30.0
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_0_base": {
+          "run_id": "thermal_0_base",
+          "samples": 32,
+          "mean_mse": 0.494684147125
+        },
+        "thermal_0_candidate": {
+          "run_id": "thermal_0_candidate",
+          "samples": 32,
+          "mean_mse": 0.34627890298749997
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_0_base",
+        "variant_id": "thermal_0_candidate",
+        "baseline_mse": 0.494684147125,
+        "variant_mse": 0.34627890298749997,
+        "samples_per_run": 32,
+        "improvement_pct": 30.0
+      },
+      "status": "failed",
+      "error": "ValueError: metric does not match observed comparison",
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "fault": "malformed_report",
+    "passed": true,
+    "expected_status": "failed",
+    "state": {
+      "task": {
+        "id": "thermal_0",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_0_base",
+        "variant": "thermal_0_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 4,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_0_base",
+          "variant_id": "thermal_0_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_0_base",
+            "samples": 32,
+            "mean_mse": 0.494684147125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_0_candidate",
+            "samples": 32,
+            "mean_mse": 0.34627890298749997
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate",
+            "baseline_mse": 0.494684147125,
+            "variant_mse": 0.34627890298749997,
+            "samples_per_run": 32,
+            "improvement_pct": 30.0
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_0_base": {
+          "run_id": "thermal_0_base",
+          "samples": 32,
+          "mean_mse": 0.494684147125
+        },
+        "thermal_0_candidate": {
+          "run_id": "thermal_0_candidate",
+          "samples": 32,
+          "mean_mse": 0.34627890298749997
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_0_base",
+        "variant_id": "thermal_0_candidate",
+        "baseline_mse": 0.494684147125,
+        "variant_mse": 0.34627890298749997,
+        "samples_per_run": 32,
+        "improvement_pct": 30.0
+      },
+      "status": "failed",
+      "error": "ValidationError: 1 validation error for Report\nimprovement_pct\n  Field required [type=missing, input_value={'summary': 'Synthetic ex...citations': ['thermal']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing",
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "fault": "budget_loop",
+    "passed": true,
+    "expected_status": "failed",
+    "state": {
+      "task": {
+        "id": "thermal_0",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_0_base",
+        "variant": "thermal_0_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 8,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "search_knowledge",
+        "arguments": {
+          "query": "sensor temperature drift calibrated residual",
+          "k": 3
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        }
+      ],
+      "loaded": {},
+      "status": "failed",
+      "error": "step budget exhausted",
+      "checkpoint_resumes": 8
+    }
+  },
+  {
+    "fault": "transient_retry",
+    "passed": true,
+    "expected_status": "complete",
+    "state": {
+      "task": {
+        "id": "thermal_0",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_0_base",
+        "variant": "thermal_0_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_0_base",
+          "variant_id": "thermal_0_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_base"
+          },
+          "attempts": 2,
+          "result": {
+            "run_id": "thermal_0_base",
+            "samples": 32,
+            "mean_mse": 0.494684147125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_0_candidate",
+            "samples": 32,
+            "mean_mse": 0.34627890298749997
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate",
+            "baseline_mse": 0.494684147125,
+            "variant_mse": 0.34627890298749997,
+            "samples_per_run": 32,
+            "improvement_pct": 30.0
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_0_base": {
+          "run_id": "thermal_0_base",
+          "samples": 32,
+          "mean_mse": 0.494684147125
+        },
+        "thermal_0_candidate": {
+          "run_id": "thermal_0_candidate",
+          "samples": 32,
+          "mean_mse": 0.34627890298749997
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_0_base",
+        "variant_id": "thermal_0_candidate",
+        "baseline_mse": 0.494684147125,
+        "variant_mse": 0.34627890298749997,
+        "samples_per_run": 32,
+        "improvement_pct": 30.0
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "thermal"
+        ],
+        "improvement_pct": 30.0
+      },
+      "checkpoint_resumes": 4
+    }
+  }
+]

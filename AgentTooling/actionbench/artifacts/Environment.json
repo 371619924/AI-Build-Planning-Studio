@@ -1,0 +1,9 @@
+{
+  "python": "3.12.14",
+  "pydantic": "2.13.4",
+  "sqlite": "3.53.1",
+  "LangGraph_installed": false,
+  "torch_installed": false,
+  "new_model_training_executed": false,
+  "external_model_calls": 0
+}

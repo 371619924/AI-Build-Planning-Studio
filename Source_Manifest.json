@@ -1,0 +1,369 @@
+{
+  "files": [
+    {
+      "path": "AgentTooling/LEGACY_README.md",
+      "bytes": 5425,
+      "sha256": "c5e14c1e83d5fca10bd73508772828596d20e5311c7687e503423d2524022e88"
+    },
+    {
+      "path": "AgentTooling/README.md",
+      "bytes": 9022,
+      "sha256": "aad9bbff86a3b0105e829f5de3a2dbb2203f9b911d7eb78b0d61b70e46d8c2fa"
+    },
+    {
+      "path": "AgentTooling/actionbench/__init__.py",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/Environment.json",
+      "bytes": 200,
+      "sha256": "4f5096837e64152195a3d00a3016891ba4152048af8ba02fcf47c284679567af"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/Evaluation.log",
+      "bytes": 2433,
+      "sha256": "041c6b346250b833a2bf8cae8efe6d6ecd693f3f18c7e71cdd0b21b101a87cf6"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/Fixtures.log",
+      "bytes": 82,
+      "sha256": "6c191cfc96e42058c84aef322cecafc33d3b937079d7ce52b9ec83146c6c38bc"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/Fresh_Evaluation.log",
+      "bytes": 2432,
+      "sha256": "629fe7fc90e93091e33f0e7f637f53cddddd97c5d4fada5fb86c5d448e4a0af4"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/Fresh_Fixtures.log",
+      "bytes": 82,
+      "sha256": "6c191cfc96e42058c84aef322cecafc33d3b937079d7ce52b9ec83146c6c38bc"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/Fresh_Tests.log",
+      "bytes": 3262,
+      "sha256": "21bd7900235a3d8ef187fc1ab7a2a31e6037e3e1332d1aab1f90693ac57393b7"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/Reproduction.json",
+      "bytes": 600,
+      "sha256": "4d363ce33c963393fcfd2e5248721c4e8049f3c37e3563066ed02e722521af1d"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/Tests.log",
+      "bytes": 3262,
+      "sha256": "4ea7634f5bb1a57398886e1333821e9efc4b64382ffdd35ed7073152b637870a"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/episodes.json",
+      "bytes": 53643,
+      "sha256": "3f9579dc856cf70ba407be50d5ab6d43c7c2b6171fb72e5efa39c87cb174ec4f"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/evaluation.json",
+      "bytes": 2432,
+      "sha256": "ddccc97465f61cd92c9436ccadbfc63df0b0de3eabd4ae3f43206856058bec41"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/scenarios.json",
+      "bytes": 2538,
+      "sha256": "2c3f6746bd8dc116b3daac3207e9ecdeffc947edfcfafac350d2beae3c5e408f"
+    },
+    {
+      "path": "AgentTooling/actionbench/artifacts/traces.json",
+      "bytes": 514670,
+      "sha256": "eac79d5e944527d00a3b813f0971c46fd0d36421351638ed5c881eb0309b8e53"
+    },
+    {
+      "path": "AgentTooling/actionbench/evaluate.py",
+      "bytes": 6029,
+      "sha256": "e2c216a0b0496d10fbf31c6d36967979a7475451fcf59a312cfbf0710b927fee"
+    },
+    {
+      "path": "AgentTooling/actionbench/runtime.py",
+      "bytes": 9060,
+      "sha256": "d356a8d729bc03a5ece91919b0d0a43418e18058ea619409430a15c2cc24f0e5"
+    },
+    {
+      "path": "AgentTooling/actionbench/test_experiment_tools.py",
+      "bytes": 2765,
+      "sha256": "c1637c547afc282c8ee2d7301bb41f04cb42d9615da53f3c24ba1cb9cd112723"
+    },
+    {
+      "path": "AgentTooling/actionbench/test_runtime.py",
+      "bytes": 8000,
+      "sha256": "45f54175a25faa803b15fdd5c3f8031f58352be8d8a05660ef856fd6a510cf68"
+    },
+    {
+      "path": "AgentTooling/actionbench/world.py",
+      "bytes": 7398,
+      "sha256": "7802c5791a8fc0da6afab5f24bf41a7b314103e4413e743dbd59d000535a5dd9"
+    },
+    {
+      "path": "AgentTooling/agent_lab.py",
+      "bytes": 8408,
+      "sha256": "5fc95b5f58141b804e48250e42629e9b8e744c6624ed27c2f9f4f0e971df24c5"
+    },
+    {
+      "path": "AgentTooling/buildstudio/README.md",
+      "bytes": 7320,
+      "sha256": "ce21ab11042d9a4dd186a425352bccde9fa43a2ce46de0f97800fbfe0c4108c0"
+    },
+    {
+      "path": "AgentTooling/buildstudio/__init__.py",
+      "bytes": 66,
+      "sha256": "a107d936aa24364cc3b87162a5fd4cc2dec0af7db79a0a43c073930865765eb9"
+    },
+    {
+      "path": "AgentTooling/buildstudio/catalog.json",
+      "bytes": 1192,
+      "sha256": "6e7886169cba7a7f094b01f1643952bf0d5e83a3c22dc6b3af5d7b7d9c1b395b"
+    },
+    {
+      "path": "AgentTooling/buildstudio/domain.py",
+      "bytes": 3962,
+      "sha256": "d76bbe73286370cfb2edf03871aa6ffcaee9bcdc6e5775f2a032286e4c068345"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evaluate.py",
+      "bytes": 2321,
+      "sha256": "73f90a62879d1d00c1d06e1a14639a1ece49a5f2aa63ea284fec1297c5198e48"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Create_Retained_Fixtures_Log.txt",
+      "bytes": 82,
+      "sha256": "6c191cfc96e42058c84aef322cecafc33d3b937079d7ce52b9ec83146c6c38bc"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Domain_Log.txt",
+      "bytes": 1777,
+      "sha256": "adfbf8fa2a2a747561f253d14cdb79d73b681caac44020bf9a2cf7a76e1fb166"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Domain_Tests.log",
+      "bytes": 1660,
+      "sha256": "a626e623e7a39818255cef00a5f65a85a734588d27b273851542af89a51f3ac9"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Evaluation.json",
+      "bytes": 52080,
+      "sha256": "a28f8b2fe924fcb29c08122fc36a872f58252890b11a8375e95558a09fe097c4"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Evaluation_Log.txt",
+      "bytes": 170,
+      "sha256": "3d0d8314efabe153049e35b8db5a5d7c908f2d6dfabdef2880bb96871929f036"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/HTTP_Results.json",
+      "bytes": 719,
+      "sha256": "ea216ccc5277d8b7121bdd4651a1a6c5e87a0901961bdb5ec5ac8bf9b558c3b5"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/HTTP_Transcripts.json",
+      "bytes": 78031,
+      "sha256": "ac15753dbebd508089e7ad2e63fbf83ee0814f07b87d098ce44067622a4550a5"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Native_UI_Syntax_Log.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Node_Log.txt",
+      "bytes": 495,
+      "sha256": "4e11887f16f64b32adcf51071df7d3e08f78a5bbfd9c733f2d14413b25b0f002"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Node_Tests.log",
+      "bytes": 498,
+      "sha256": "ef969250e0a95de2e9ca72f6e964ab4ff306e18e1f556d2f01a5835b21c5e3f1"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Provider_Transcripts.json",
+      "bytes": 198960,
+      "sha256": "bbfd5bea593d2c3cbbb0a6120b84fd72c711b7bfa93eeeadfe688bfdf77f047a"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/React_Source_Syntax_Log.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Reproduction.json",
+      "bytes": 301,
+      "sha256": "fbb892fa6559886a38805b5c08633852194aa16b2083aa7563069953dc5ffee4"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Retained_Agent_Tests_Log.txt",
+      "bytes": 3262,
+      "sha256": "901586a0d84fc0d7fe0fe87fab94ef510622db9427498f9868090640b716af31"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Retained_Evaluation_Log.txt",
+      "bytes": 2433,
+      "sha256": "2703dc16f21972493f92c0e20bab0881888236859964b3d4f3d8b1e6852c143b"
+    },
+    {
+      "path": "AgentTooling/buildstudio/evidence/Verification.json",
+      "bytes": 919,
+      "sha256": "c78f038100b036f9160f6b40f1f8786bca92b912a3ace012cc57ddea52f46d73"
+    },
+    {
+      "path": "AgentTooling/buildstudio/model_fixture.py",
+      "bytes": 2863,
+      "sha256": "356f0053ba328c60a419c5e55bb4d4780fdddc5873d8667dc9890a008e891138"
+    },
+    {
+      "path": "AgentTooling/buildstudio/package.json",
+      "bytes": 192,
+      "sha256": "878fd1fe6bb13e672ad0fdc59329051b1b41ae96e79e0d2b86a36ee578c33994"
+    },
+    {
+      "path": "AgentTooling/buildstudio/planner.py",
+      "bytes": 3806,
+      "sha256": "c13f319ad586a95327807ffbf50c52a42c22013706de14189b107a5532241d0a"
+    },
+    {
+      "path": "AgentTooling/buildstudio/server.ts",
+      "bytes": 8672,
+      "sha256": "95258ddad782f590d47d1f8cd0a0902999ec2f3e62159abac09ab26d8962d70b"
+    },
+    {
+      "path": "AgentTooling/buildstudio/test_domain.py",
+      "bytes": 4229,
+      "sha256": "24222de89f4d46304110afa3048345d9bd23d02429e4fd314c15b73281ad3ed6"
+    },
+    {
+      "path": "AgentTooling/buildstudio/test_server.ts",
+      "bytes": 6576,
+      "sha256": "7cedc7fdb911ca7b2a4c98e91a4afc4685ff6a77d5bb5410c336e50ac179c362"
+    },
+    {
+      "path": "AgentTooling/buildstudio/test_ui.mjs",
+      "bytes": 2405,
+      "sha256": "4173d8708fbbe10a193bd65478b75c90cf1764f9da02d8eb0daaf39bdd0e8c3d"
+    },
+    {
+      "path": "AgentTooling/buildstudio/web/ReactStudio.mjs",
+      "bytes": 1485,
+      "sha256": "ff931ce732abe163e1eb3a1e0dd8849bad1cdb5f5f385c5669ab15a19cd90a07"
+    },
+    {
+      "path": "AgentTooling/buildstudio/web/app.mjs",
+      "bytes": 1902,
+      "sha256": "d17073bbd0a04976ed69d1782495d1a774ea3a3d760ec9eff6342f1980d53cf0"
+    },
+    {
+      "path": "AgentTooling/buildstudio/web/index.html",
+      "bytes": 2103,
+      "sha256": "e9e817d2ab5f78bd8465288cef801e46a87094edb697a27588ed156b2d1ab166"
+    },
+    {
+      "path": "AgentTooling/buildstudio/web/ui_model.mjs",
+      "bytes": 2032,
+      "sha256": "bf476e2cd5fe6b786d5e2271f3f09cc2fe56816f045357cec858fdd3f0e206b8"
+    },
+    {
+      "path": "AgentTooling/create_fixtures.py",
+      "bytes": 5216,
+      "sha256": "8124a9ff719bc58e958860676697c08c6a2d782255f54a2fb209d38b1d8d8cd4"
+    },
+    {
+      "path": "AgentTooling/data/corpus.json",
+      "bytes": 3818,
+      "sha256": "70a02b18c58e7886d92bc295315a326287530d4712e88e5e1ebe2e77c23c66bd"
+    },
+    {
+      "path": "AgentTooling/data/retrieval_queries.json",
+      "bytes": 1169,
+      "sha256": "85709b03fed138b7258c910536f905f5925a1fc67403c8aa0c56f71d3f9ff963"
+    },
+    {
+      "path": "AgentTooling/data/tasks.json",
+      "bytes": 5868,
+      "sha256": "62035f7f594c89760c0e02ba300315c0df38f7296c1ae72ee6e2537643b866c9"
+    },
+    {
+      "path": "AgentTooling/evaluate.py",
+      "bytes": 6125,
+      "sha256": "4c611e6336d19b57b1f1e8e16a377b834e588a0e63f1f37de32b6950543bfda0"
+    },
+    {
+      "path": "AgentTooling/experiment_tools.py",
+      "bytes": 5107,
+      "sha256": "c5896671039a6c7718c42038819d0defe3db4531c092b8d1a0b616d4df1701c5"
+    },
+    {
+      "path": "AgentTooling/legacy_evidence/fault_traces.json",
+      "bytes": 26958,
+      "sha256": "fe8fef284e17abd029535388f7c04c966a6697af6f262e4df4a2dadbaeede44f"
+    },
+    {
+      "path": "AgentTooling/legacy_evidence/http_adapter_trace.json",
+      "bytes": 26320,
+      "sha256": "b0cfc353eab28693f90d64b95e43763a74a283eb9e7117492d9f137a3850199c"
+    },
+    {
+      "path": "AgentTooling/legacy_evidence/input_hashes.json",
+      "bytes": 379,
+      "sha256": "fd3f970e832e1165db288ae0f8fbfe23b5759d742b8a57c166141368476a3dd1"
+    },
+    {
+      "path": "AgentTooling/legacy_evidence/nominal_traces.json",
+      "bytes": 87624,
+      "sha256": "a147e980d985c99ec6ebdeeffe4a2c0a9931bfca95cbdca284235c4eb01d4161"
+    },
+    {
+      "path": "AgentTooling/legacy_evidence/package_hashes.json",
+      "bytes": 1525,
+      "sha256": "8c3ee97a5fa5d4144871ab667e74da1ba4f09158f0f2c83622b54a83f0cfef20"
+    },
+    {
+      "path": "AgentTooling/legacy_evidence/retrieval_ablation.json",
+      "bytes": 3471,
+      "sha256": "31f23f18c00e601c4a18b159b6e1901d6fac5ae8343744e8ec07ff0154944efc"
+    },
+    {
+      "path": "AgentTooling/legacy_evidence/summary.json",
+      "bytes": 1087,
+      "sha256": "1cbc381000d2d48c5e40478398bc085ce8bb8b2940ba987c8040f57938d9a61f"
+    },
+    {
+      "path": "AgentTooling/reproduce_actionbench.py",
+      "bytes": 2540,
+      "sha256": "5d871d9632677e6a43578e23f747d21bbb136baec445ff4c77d3bdb978382fcd"
+    },
+    {
+      "path": "AgentTooling/reproduce_studio.py",
+      "bytes": 1469,
+      "sha256": "3e4729c7915541ccb4a91abfb022dc4dd0fd55fa68af46d58f449754e5e17479"
+    },
+    {
+      "path": "AgentTooling/requirements-legacy.txt",
+      "bytes": 35,
+      "sha256": "1d8a96366c1b5bd4d429f139a7b23d7257583431603a262f125411a4e2f94931"
+    },
+    {
+      "path": "AgentTooling/requirements.lock.txt",
+      "bytes": 705,
+      "sha256": "534b4380641b6875063811662b78da8ff5bbf9dc717268dad8243b3cbb4f9f6b"
+    },
+    {
+      "path": "AgentTooling/requirements.txt",
+      "bytes": 17,
+      "sha256": "3af49e6f294463d79c63b4bb5622ba559f781d2a3661699fd53a55ab7075ccdf"
+    },
+    {
+      "path": "AgentTooling/verify_studio.py",
+      "bytes": 1837,
+      "sha256": "0fe5b3734b94ba143270adf3c5df1ee7b1f34f6aa655ff06640bb8e65e2c2903"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1729,
+      "sha256": "10d43faad5f75073ad30a3e73fd54983fa38b34c18db984b57973e13287105ce"
+    }
+  ]
+}

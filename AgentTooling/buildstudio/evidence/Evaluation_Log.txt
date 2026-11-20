@@ -1,0 +1,1 @@
+{"passed": true, "scenarios": 12, "supported": 4, "unsupported": 3, "errors": 5, "provider_http_requests": 41, "external_llm_calls": 0, "model_quality_evaluated": false}

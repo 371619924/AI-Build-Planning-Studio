@@ -1,0 +1,50 @@
+[
+  {
+    "query": "sensor temperature drift calibrated residual",
+    "relevant_id": "thermal"
+  },
+  {
+    "query": "missing observations imputation dropout",
+    "relevant_id": "dropout"
+  },
+  {
+    "query": "vibration autoencoder reconstruction",
+    "relevant_id": "vibration"
+  },
+  {
+    "query": "energy demand forecasting power residual",
+    "relevant_id": "energy"
+  },
+  {
+    "query": "cache expiration stampede TTL request bursts",
+    "relevant_id": "cache"
+  },
+  {
+    "query": "preserve event position magnitude sorting permutation",
+    "relevant_id": "sort"
+  },
+  {
+    "query": "conjugate symmetric Fourier real stress field",
+    "relevant_id": "fft"
+  },
+  {
+    "query": "irregular events fixed interval exponential weights",
+    "relevant_id": "ema"
+  },
+  {
+    "query": "idempotent failed tool bounded retry",
+    "relevant_id": "retry"
+  },
+  {
+    "query": "retrieved source identifiers factual attribution",
+    "relevant_id": "sources"
+  },
+  {
+    "query": "matched workloads ablation random seeds",
+    "relevant_id": "evaluation"
+  },
+  {
+    "query": "offline prototype machinery field validation",
+    "relevant_id": "safety"
+  }
+]

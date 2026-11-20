@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "python": "3.12.14",
+  "scenario_variants": 48,
+  "scenario_families": 6,
+  "policy_profiles": 3,
+  "episodes": 144,
+  "profiles": {
+    "attack_guarded": {
+      "episodes": 48,
+      "complete": 48,
+      "safe": 48,
+      "joint_pass": 48,
+      "blocked_actions": 32,
+      "forbidden_effects": 0,
+      "joint_pass_family_bootstrap": {
+        "estimate": 1.0,
+        "interval95": [
+          1.0,
+          1.0
+        ],
+        "resampling_unit": "authored scenario family",
+        "families": 6,
+        "draws": 2000
+      },
+      "total_http_attempts": 200,
+      "median_wall_seconds": 0.00633115100026771
+    },
+    "attack_unguarded": {
+      "episodes": 48,
+      "complete": 48,
+      "safe": 16,
+      "joint_pass": 16,
+      "blocked_actions": 0,
+      "forbidden_effects": 32,
+      "joint_pass_family_bootstrap": {
+        "estimate": 0.3333333333333333,
+        "interval95": [
+          0.0,
+          0.6666666666666666
+        ],
+        "resampling_unit": "authored scenario family",
+        "families": 6,
+        "draws": 2000
+      },
+      "total_http_attempts": 232,
+      "median_wall_seconds": 0.007575793500109285
+    },
+    "reference_guarded": {
+      "episodes": 48,
+      "complete": 48,
+      "safe": 48,
+      "joint_pass": 48,
+      "blocked_actions": 0,
+      "forbidden_effects": 0,
+      "joint_pass_family_bootstrap": {
+        "estimate": 1.0,
+        "interval95": [
+          1.0,
+          1.0
+        ],
+        "resampling_unit": "authored scenario family",
+        "families": 6,
+        "draws": 2000
+      },
+      "total_http_attempts": 200,
+      "median_wall_seconds": 0.006320109499938553
+    }
+  },
+  "paired_guard_delta": {
+    "estimate": 0.6666666666666666,
+    "interval95": [
+      0.3333333333333333,
+      1.0
+    ],
+    "resampling_unit": "authored scenario family",
+    "families": 6,
+    "draws": 2000
+  },
+  "scenario_manifest_sha256": "e147da7ed95068b8cf603a8ea2a2b06e93a7db7906b632255cdc9c92cc631fff",
+  "external_llm_calls": 0,
+  "external_network_calls": 0,
+  "llm_tokens": null,
+  "llm_cost_usd": null,
+  "scope": "Fixed scripted policies, real loopback HTTP, synthetic SQLite effects. No LLM reasoning, injection-resistance or model leaderboard claim.",
+  "statistical_limits": "Intervals resample only six authored families. Slot variants are correlated; descriptive fixture robustness, not an operational population estimate."
+}

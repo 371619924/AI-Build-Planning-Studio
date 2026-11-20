@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": 20,
+  "http_requests": 21,
+  "results": [
+    "native UI served",
+    "auth required",
+    "fixture catalog served",
+    "missing key rejected",
+    "concurrent retry same identity",
+    "structured tool plan",
+    "key payload conflict",
+    "one concurrent edit succeeds",
+    "revision persisted",
+    "audit gap free",
+    "invalid wiring blocked",
+    "rejected edit no history change",
+    "geometry source export",
+    "unsupported explicit",
+    "unsupported no geometry",
+    "provider error",
+    "tool loop bound",
+    "database survives restart",
+    "receipt survives restart",
+    "split UTF-8 prompt preserved"
+  ],
+  "browser_executed": false,
+  "external_llm_calls": 0
+}

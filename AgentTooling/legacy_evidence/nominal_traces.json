@@ -1,0 +1,2882 @@
+[
+  {
+    "id": "thermal_0",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "thermal_0",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_0_base",
+        "variant": "thermal_0_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_0_base",
+          "variant_id": "thermal_0_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_0_base",
+            "samples": 32,
+            "mean_mse": 0.494684147125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_0_candidate",
+            "samples": 32,
+            "mean_mse": 0.34627890298749997
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_0_base",
+            "variant_id": "thermal_0_candidate",
+            "baseline_mse": 0.494684147125,
+            "variant_mse": 0.34627890298749997,
+            "samples_per_run": 32,
+            "improvement_pct": 30.0
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_0_base": {
+          "run_id": "thermal_0_base",
+          "samples": 32,
+          "mean_mse": 0.494684147125
+        },
+        "thermal_0_candidate": {
+          "run_id": "thermal_0_candidate",
+          "samples": 32,
+          "mean_mse": 0.34627890298749997
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_0_base",
+        "variant_id": "thermal_0_candidate",
+        "baseline_mse": 0.494684147125,
+        "variant_mse": 0.34627890298749997,
+        "samples_per_run": 32,
+        "improvement_pct": 30.0
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "thermal"
+        ],
+        "improvement_pct": 30.0
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "thermal_1",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "thermal_1",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_1_base",
+        "variant": "thermal_1_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 27.500000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_1_base",
+          "variant_id": "thermal_1_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_1_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_1_base",
+            "samples": 32,
+            "mean_mse": 0.52680579390625
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_1_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_1_candidate",
+            "samples": 32,
+            "mean_mse": 0.38193420058203126
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_1_base",
+            "variant_id": "thermal_1_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_1_base",
+            "variant_id": "thermal_1_candidate",
+            "baseline_mse": 0.52680579390625,
+            "variant_mse": 0.38193420058203126,
+            "samples_per_run": 32,
+            "improvement_pct": 27.500000000000004
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_1_base": {
+          "run_id": "thermal_1_base",
+          "samples": 32,
+          "mean_mse": 0.52680579390625
+        },
+        "thermal_1_candidate": {
+          "run_id": "thermal_1_candidate",
+          "samples": 32,
+          "mean_mse": 0.38193420058203126
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_1_base",
+        "variant_id": "thermal_1_candidate",
+        "baseline_mse": 0.52680579390625,
+        "variant_mse": 0.38193420058203126,
+        "samples_per_run": 32,
+        "improvement_pct": 27.500000000000004
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "thermal"
+        ],
+        "improvement_pct": 27.500000000000004
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "thermal_2",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "thermal_2",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_2_base",
+        "variant": "thermal_2_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 25.0
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_2_base",
+          "variant_id": "thermal_2_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_2_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_2_base",
+            "samples": 32,
+            "mean_mse": 0.5890641693125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_2_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_2_candidate",
+            "samples": 32,
+            "mean_mse": 0.441798126984375
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_2_base",
+            "variant_id": "thermal_2_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_2_base",
+            "variant_id": "thermal_2_candidate",
+            "baseline_mse": 0.5890641693125,
+            "variant_mse": 0.441798126984375,
+            "samples_per_run": 32,
+            "improvement_pct": 25.00000000000001
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_2_base": {
+          "run_id": "thermal_2_base",
+          "samples": 32,
+          "mean_mse": 0.5890641693125
+        },
+        "thermal_2_candidate": {
+          "run_id": "thermal_2_candidate",
+          "samples": 32,
+          "mean_mse": 0.441798126984375
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_2_base",
+        "variant_id": "thermal_2_candidate",
+        "baseline_mse": 0.5890641693125,
+        "variant_mse": 0.441798126984375,
+        "samples_per_run": 32,
+        "improvement_pct": 25.00000000000001
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "thermal"
+        ],
+        "improvement_pct": 25.00000000000001
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "thermal_3",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "thermal_3",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_3_base",
+        "variant": "thermal_3_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 22.500000000000007
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_3_base",
+          "variant_id": "thermal_3_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_3_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_3_base",
+            "samples": 32,
+            "mean_mse": 0.54501965078125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_3_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_3_candidate",
+            "samples": 32,
+            "mean_mse": 0.4223902293554687
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_3_base",
+            "variant_id": "thermal_3_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_3_base",
+            "variant_id": "thermal_3_candidate",
+            "baseline_mse": 0.54501965078125,
+            "variant_mse": 0.4223902293554687,
+            "samples_per_run": 32,
+            "improvement_pct": 22.50000000000001
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_3_base": {
+          "run_id": "thermal_3_base",
+          "samples": 32,
+          "mean_mse": 0.54501965078125
+        },
+        "thermal_3_candidate": {
+          "run_id": "thermal_3_candidate",
+          "samples": 32,
+          "mean_mse": 0.4223902293554687
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_3_base",
+        "variant_id": "thermal_3_candidate",
+        "baseline_mse": 0.54501965078125,
+        "variant_mse": 0.4223902293554687,
+        "samples_per_run": 32,
+        "improvement_pct": 22.50000000000001
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "thermal"
+        ],
+        "improvement_pct": 22.50000000000001
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "thermal_4",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "thermal_4",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_4_base",
+        "variant": "thermal_4_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 20.000000000000007
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_4_base",
+          "variant_id": "thermal_4_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_4_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_4_base",
+            "samples": 32,
+            "mean_mse": 0.47209449759375
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_4_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_4_candidate",
+            "samples": 32,
+            "mean_mse": 0.37767559807499995
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_4_base",
+            "variant_id": "thermal_4_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_4_base",
+            "variant_id": "thermal_4_candidate",
+            "baseline_mse": 0.47209449759375,
+            "variant_mse": 0.37767559807499995,
+            "samples_per_run": 32,
+            "improvement_pct": 20.00000000000001
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_4_base": {
+          "run_id": "thermal_4_base",
+          "samples": 32,
+          "mean_mse": 0.47209449759375
+        },
+        "thermal_4_candidate": {
+          "run_id": "thermal_4_candidate",
+          "samples": 32,
+          "mean_mse": 0.37767559807499995
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_4_base",
+        "variant_id": "thermal_4_candidate",
+        "baseline_mse": 0.47209449759375,
+        "variant_mse": 0.37767559807499995,
+        "samples_per_run": 32,
+        "improvement_pct": 20.00000000000001
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "thermal"
+        ],
+        "improvement_pct": 20.00000000000001
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "thermal_5",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "thermal_5",
+        "query": "sensor temperature drift calibrated residual",
+        "baseline": "thermal_5_base",
+        "variant": "thermal_5_candidate",
+        "expected_source": "thermal",
+        "expected_improvement_pct": 17.500000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "thermal_5_base",
+          "variant_id": "thermal_5_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "sensor temperature drift calibrated residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 11.366872
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 2.249493
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_5_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_5_base",
+            "samples": 32,
+            "mean_mse": 0.57898986946875
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "thermal_5_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "thermal_5_candidate",
+            "samples": 32,
+            "mean_mse": 0.47766664231171874
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "thermal_5_base",
+            "variant_id": "thermal_5_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "thermal_5_base",
+            "variant_id": "thermal_5_candidate",
+            "baseline_mse": 0.57898986946875,
+            "variant_mse": 0.47766664231171874,
+            "samples_per_run": 32,
+            "improvement_pct": 17.5
+          }
+        }
+      ],
+      "loaded": {
+        "thermal_5_base": {
+          "run_id": "thermal_5_base",
+          "samples": 32,
+          "mean_mse": 0.57898986946875
+        },
+        "thermal_5_candidate": {
+          "run_id": "thermal_5_candidate",
+          "samples": 32,
+          "mean_mse": 0.47766664231171874
+        }
+      },
+      "comparison": {
+        "baseline_id": "thermal_5_base",
+        "variant_id": "thermal_5_candidate",
+        "baseline_mse": 0.57898986946875,
+        "variant_mse": 0.47766664231171874,
+        "samples_per_run": 32,
+        "improvement_pct": 17.5
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "thermal"
+        ],
+        "improvement_pct": 17.5
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "dropout_0",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "dropout_0",
+        "query": "missing observations imputation dropout",
+        "baseline": "dropout_0_base",
+        "variant": "dropout_0_candidate",
+        "expected_source": "dropout",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "dropout_0_base",
+          "variant_id": "dropout_0_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "missing observations imputation dropout",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 9.466856
+              },
+              {
+                "id": "retry",
+                "title": "Retry semantics",
+                "text": "Retry a failed tool only if its operation is idempotent or deduplicated. A bounded retry count prevents indefinite loops, while a checkpoint records completed tool observations.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_0_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_0_base",
+            "samples": 32,
+            "mean_mse": 0.72431105071875
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_0_candidate",
+            "samples": 32,
+            "mean_mse": 0.507017735503125
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "dropout_0_base",
+            "variant_id": "dropout_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "dropout_0_base",
+            "variant_id": "dropout_0_candidate",
+            "baseline_mse": 0.72431105071875,
+            "variant_mse": 0.507017735503125,
+            "samples_per_run": 32,
+            "improvement_pct": 30.0
+          }
+        }
+      ],
+      "loaded": {
+        "dropout_0_base": {
+          "run_id": "dropout_0_base",
+          "samples": 32,
+          "mean_mse": 0.72431105071875
+        },
+        "dropout_0_candidate": {
+          "run_id": "dropout_0_candidate",
+          "samples": 32,
+          "mean_mse": 0.507017735503125
+        }
+      },
+      "comparison": {
+        "baseline_id": "dropout_0_base",
+        "variant_id": "dropout_0_candidate",
+        "baseline_mse": 0.72431105071875,
+        "variant_mse": 0.507017735503125,
+        "samples_per_run": 32,
+        "improvement_pct": 30.0
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "dropout"
+        ],
+        "improvement_pct": 30.0
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "dropout_1",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "dropout_1",
+        "query": "missing observations imputation dropout",
+        "baseline": "dropout_1_base",
+        "variant": "dropout_1_candidate",
+        "expected_source": "dropout",
+        "expected_improvement_pct": 27.500000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "dropout_1_base",
+          "variant_id": "dropout_1_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "missing observations imputation dropout",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 9.466856
+              },
+              {
+                "id": "retry",
+                "title": "Retry semantics",
+                "text": "Retry a failed tool only if its operation is idempotent or deduplicated. A bounded retry count prevents indefinite loops, while a checkpoint records completed tool observations.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_1_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_1_base",
+            "samples": 32,
+            "mean_mse": 0.59872445034375
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_1_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_1_candidate",
+            "samples": 32,
+            "mean_mse": 0.4340752264992187
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "dropout_1_base",
+            "variant_id": "dropout_1_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "dropout_1_base",
+            "variant_id": "dropout_1_candidate",
+            "baseline_mse": 0.59872445034375,
+            "variant_mse": 0.4340752264992187,
+            "samples_per_run": 32,
+            "improvement_pct": 27.500000000000007
+          }
+        }
+      ],
+      "loaded": {
+        "dropout_1_base": {
+          "run_id": "dropout_1_base",
+          "samples": 32,
+          "mean_mse": 0.59872445034375
+        },
+        "dropout_1_candidate": {
+          "run_id": "dropout_1_candidate",
+          "samples": 32,
+          "mean_mse": 0.4340752264992187
+        }
+      },
+      "comparison": {
+        "baseline_id": "dropout_1_base",
+        "variant_id": "dropout_1_candidate",
+        "baseline_mse": 0.59872445034375,
+        "variant_mse": 0.4340752264992187,
+        "samples_per_run": 32,
+        "improvement_pct": 27.500000000000007
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "dropout"
+        ],
+        "improvement_pct": 27.500000000000007
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "dropout_2",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "dropout_2",
+        "query": "missing observations imputation dropout",
+        "baseline": "dropout_2_base",
+        "variant": "dropout_2_candidate",
+        "expected_source": "dropout",
+        "expected_improvement_pct": 25.0
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "dropout_2_base",
+          "variant_id": "dropout_2_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "missing observations imputation dropout",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 9.466856
+              },
+              {
+                "id": "retry",
+                "title": "Retry semantics",
+                "text": "Retry a failed tool only if its operation is idempotent or deduplicated. A bounded retry count prevents indefinite loops, while a checkpoint records completed tool observations.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_2_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_2_base",
+            "samples": 32,
+            "mean_mse": 0.49685589406249997
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_2_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_2_candidate",
+            "samples": 32,
+            "mean_mse": 0.372641920546875
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "dropout_2_base",
+            "variant_id": "dropout_2_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "dropout_2_base",
+            "variant_id": "dropout_2_candidate",
+            "baseline_mse": 0.49685589406249997,
+            "variant_mse": 0.372641920546875,
+            "samples_per_run": 32,
+            "improvement_pct": 24.999999999999996
+          }
+        }
+      ],
+      "loaded": {
+        "dropout_2_base": {
+          "run_id": "dropout_2_base",
+          "samples": 32,
+          "mean_mse": 0.49685589406249997
+        },
+        "dropout_2_candidate": {
+          "run_id": "dropout_2_candidate",
+          "samples": 32,
+          "mean_mse": 0.372641920546875
+        }
+      },
+      "comparison": {
+        "baseline_id": "dropout_2_base",
+        "variant_id": "dropout_2_candidate",
+        "baseline_mse": 0.49685589406249997,
+        "variant_mse": 0.372641920546875,
+        "samples_per_run": 32,
+        "improvement_pct": 24.999999999999996
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "dropout"
+        ],
+        "improvement_pct": 24.999999999999996
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "dropout_3",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "dropout_3",
+        "query": "missing observations imputation dropout",
+        "baseline": "dropout_3_base",
+        "variant": "dropout_3_candidate",
+        "expected_source": "dropout",
+        "expected_improvement_pct": 22.500000000000007
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "dropout_3_base",
+          "variant_id": "dropout_3_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "missing observations imputation dropout",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 9.466856
+              },
+              {
+                "id": "retry",
+                "title": "Retry semantics",
+                "text": "Retry a failed tool only if its operation is idempotent or deduplicated. A bounded retry count prevents indefinite loops, while a checkpoint records completed tool observations.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_3_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_3_base",
+            "samples": 32,
+            "mean_mse": 0.591017686
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_3_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_3_candidate",
+            "samples": 32,
+            "mean_mse": 0.45803870664999996
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "dropout_3_base",
+            "variant_id": "dropout_3_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "dropout_3_base",
+            "variant_id": "dropout_3_candidate",
+            "baseline_mse": 0.591017686,
+            "variant_mse": 0.45803870664999996,
+            "samples_per_run": 32,
+            "improvement_pct": 22.500000000000014
+          }
+        }
+      ],
+      "loaded": {
+        "dropout_3_base": {
+          "run_id": "dropout_3_base",
+          "samples": 32,
+          "mean_mse": 0.591017686
+        },
+        "dropout_3_candidate": {
+          "run_id": "dropout_3_candidate",
+          "samples": 32,
+          "mean_mse": 0.45803870664999996
+        }
+      },
+      "comparison": {
+        "baseline_id": "dropout_3_base",
+        "variant_id": "dropout_3_candidate",
+        "baseline_mse": 0.591017686,
+        "variant_mse": 0.45803870664999996,
+        "samples_per_run": 32,
+        "improvement_pct": 22.500000000000014
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "dropout"
+        ],
+        "improvement_pct": 22.500000000000014
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "dropout_4",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "dropout_4",
+        "query": "missing observations imputation dropout",
+        "baseline": "dropout_4_base",
+        "variant": "dropout_4_candidate",
+        "expected_source": "dropout",
+        "expected_improvement_pct": 20.000000000000007
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "dropout_4_base",
+          "variant_id": "dropout_4_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "missing observations imputation dropout",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 9.466856
+              },
+              {
+                "id": "retry",
+                "title": "Retry semantics",
+                "text": "Retry a failed tool only if its operation is idempotent or deduplicated. A bounded retry count prevents indefinite loops, while a checkpoint records completed tool observations.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_4_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_4_base",
+            "samples": 32,
+            "mean_mse": 0.5216020367499999
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_4_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_4_candidate",
+            "samples": 32,
+            "mean_mse": 0.41728162939999996
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "dropout_4_base",
+            "variant_id": "dropout_4_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "dropout_4_base",
+            "variant_id": "dropout_4_candidate",
+            "baseline_mse": 0.5216020367499999,
+            "variant_mse": 0.41728162939999996,
+            "samples_per_run": 32,
+            "improvement_pct": 19.999999999999996
+          }
+        }
+      ],
+      "loaded": {
+        "dropout_4_base": {
+          "run_id": "dropout_4_base",
+          "samples": 32,
+          "mean_mse": 0.5216020367499999
+        },
+        "dropout_4_candidate": {
+          "run_id": "dropout_4_candidate",
+          "samples": 32,
+          "mean_mse": 0.41728162939999996
+        }
+      },
+      "comparison": {
+        "baseline_id": "dropout_4_base",
+        "variant_id": "dropout_4_candidate",
+        "baseline_mse": 0.5216020367499999,
+        "variant_mse": 0.41728162939999996,
+        "samples_per_run": 32,
+        "improvement_pct": 19.999999999999996
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "dropout"
+        ],
+        "improvement_pct": 19.999999999999996
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "dropout_5",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "dropout_5",
+        "query": "missing observations imputation dropout",
+        "baseline": "dropout_5_base",
+        "variant": "dropout_5_candidate",
+        "expected_source": "dropout",
+        "expected_improvement_pct": 17.500000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "dropout_5_base",
+          "variant_id": "dropout_5_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "missing observations imputation dropout",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 9.466856
+              },
+              {
+                "id": "retry",
+                "title": "Retry semantics",
+                "text": "Retry a failed tool only if its operation is idempotent or deduplicated. A bounded retry count prevents indefinite loops, while a checkpoint records completed tool observations.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_5_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_5_base",
+            "samples": 32,
+            "mean_mse": 0.53948874528125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "dropout_5_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "dropout_5_candidate",
+            "samples": 32,
+            "mean_mse": 0.44507821485703125
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "dropout_5_base",
+            "variant_id": "dropout_5_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "dropout_5_base",
+            "variant_id": "dropout_5_candidate",
+            "baseline_mse": 0.53948874528125,
+            "variant_mse": 0.44507821485703125,
+            "samples_per_run": 32,
+            "improvement_pct": 17.5
+          }
+        }
+      ],
+      "loaded": {
+        "dropout_5_base": {
+          "run_id": "dropout_5_base",
+          "samples": 32,
+          "mean_mse": 0.53948874528125
+        },
+        "dropout_5_candidate": {
+          "run_id": "dropout_5_candidate",
+          "samples": 32,
+          "mean_mse": 0.44507821485703125
+        }
+      },
+      "comparison": {
+        "baseline_id": "dropout_5_base",
+        "variant_id": "dropout_5_candidate",
+        "baseline_mse": 0.53948874528125,
+        "variant_mse": 0.44507821485703125,
+        "samples_per_run": 32,
+        "improvement_pct": 17.5
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "dropout"
+        ],
+        "improvement_pct": 17.5
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "vibration_0",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "vibration_0",
+        "query": "vibration autoencoder reconstruction",
+        "baseline": "vibration_0_base",
+        "variant": "vibration_0_candidate",
+        "expected_source": "vibration",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "vibration_0_base",
+          "variant_id": "vibration_0_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "vibration autoencoder reconstruction",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "vibration",
+                "title": "Vibration reconstruction",
+                "text": "A vibration autoencoder reconstructs sampled machine signals. Reconstruction mean squared error can identify changed operating conditions, but threshold calibration and labeled validation are separate experiments.",
+                "score": 7.417362
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_0_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_0_base",
+            "samples": 32,
+            "mean_mse": 0.609898604375
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_0_candidate",
+            "samples": 32,
+            "mean_mse": 0.42692902306249997
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "vibration_0_base",
+            "variant_id": "vibration_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "vibration_0_base",
+            "variant_id": "vibration_0_candidate",
+            "baseline_mse": 0.609898604375,
+            "variant_mse": 0.42692902306249997,
+            "samples_per_run": 32,
+            "improvement_pct": 30.000000000000004
+          }
+        }
+      ],
+      "loaded": {
+        "vibration_0_base": {
+          "run_id": "vibration_0_base",
+          "samples": 32,
+          "mean_mse": 0.609898604375
+        },
+        "vibration_0_candidate": {
+          "run_id": "vibration_0_candidate",
+          "samples": 32,
+          "mean_mse": 0.42692902306249997
+        }
+      },
+      "comparison": {
+        "baseline_id": "vibration_0_base",
+        "variant_id": "vibration_0_candidate",
+        "baseline_mse": 0.609898604375,
+        "variant_mse": 0.42692902306249997,
+        "samples_per_run": 32,
+        "improvement_pct": 30.000000000000004
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "vibration"
+        ],
+        "improvement_pct": 30.000000000000004
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "vibration_1",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "vibration_1",
+        "query": "vibration autoencoder reconstruction",
+        "baseline": "vibration_1_base",
+        "variant": "vibration_1_candidate",
+        "expected_source": "vibration",
+        "expected_improvement_pct": 27.500000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "vibration_1_base",
+          "variant_id": "vibration_1_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "vibration autoencoder reconstruction",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "vibration",
+                "title": "Vibration reconstruction",
+                "text": "A vibration autoencoder reconstructs sampled machine signals. Reconstruction mean squared error can identify changed operating conditions, but threshold calibration and labeled validation are separate experiments.",
+                "score": 7.417362
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_1_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_1_base",
+            "samples": 32,
+            "mean_mse": 0.533499666625
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_1_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_1_candidate",
+            "samples": 32,
+            "mean_mse": 0.386787258303125
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "vibration_1_base",
+            "variant_id": "vibration_1_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "vibration_1_base",
+            "variant_id": "vibration_1_candidate",
+            "baseline_mse": 0.533499666625,
+            "variant_mse": 0.386787258303125,
+            "samples_per_run": 32,
+            "improvement_pct": 27.500000000000007
+          }
+        }
+      ],
+      "loaded": {
+        "vibration_1_base": {
+          "run_id": "vibration_1_base",
+          "samples": 32,
+          "mean_mse": 0.533499666625
+        },
+        "vibration_1_candidate": {
+          "run_id": "vibration_1_candidate",
+          "samples": 32,
+          "mean_mse": 0.386787258303125
+        }
+      },
+      "comparison": {
+        "baseline_id": "vibration_1_base",
+        "variant_id": "vibration_1_candidate",
+        "baseline_mse": 0.533499666625,
+        "variant_mse": 0.386787258303125,
+        "samples_per_run": 32,
+        "improvement_pct": 27.500000000000007
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "vibration"
+        ],
+        "improvement_pct": 27.500000000000007
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "vibration_2",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "vibration_2",
+        "query": "vibration autoencoder reconstruction",
+        "baseline": "vibration_2_base",
+        "variant": "vibration_2_candidate",
+        "expected_source": "vibration",
+        "expected_improvement_pct": 25.0
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "vibration_2_base",
+          "variant_id": "vibration_2_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "vibration autoencoder reconstruction",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "vibration",
+                "title": "Vibration reconstruction",
+                "text": "A vibration autoencoder reconstructs sampled machine signals. Reconstruction mean squared error can identify changed operating conditions, but threshold calibration and labeled validation are separate experiments.",
+                "score": 7.417362
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_2_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_2_base",
+            "samples": 32,
+            "mean_mse": 0.4946696991875
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_2_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_2_candidate",
+            "samples": 32,
+            "mean_mse": 0.371002274390625
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "vibration_2_base",
+            "variant_id": "vibration_2_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "vibration_2_base",
+            "variant_id": "vibration_2_candidate",
+            "baseline_mse": 0.4946696991875,
+            "variant_mse": 0.371002274390625,
+            "samples_per_run": 32,
+            "improvement_pct": 25.0
+          }
+        }
+      ],
+      "loaded": {
+        "vibration_2_base": {
+          "run_id": "vibration_2_base",
+          "samples": 32,
+          "mean_mse": 0.4946696991875
+        },
+        "vibration_2_candidate": {
+          "run_id": "vibration_2_candidate",
+          "samples": 32,
+          "mean_mse": 0.371002274390625
+        }
+      },
+      "comparison": {
+        "baseline_id": "vibration_2_base",
+        "variant_id": "vibration_2_candidate",
+        "baseline_mse": 0.4946696991875,
+        "variant_mse": 0.371002274390625,
+        "samples_per_run": 32,
+        "improvement_pct": 25.0
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "vibration"
+        ],
+        "improvement_pct": 25.0
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "vibration_3",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "vibration_3",
+        "query": "vibration autoencoder reconstruction",
+        "baseline": "vibration_3_base",
+        "variant": "vibration_3_candidate",
+        "expected_source": "vibration",
+        "expected_improvement_pct": 22.500000000000007
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "vibration_3_base",
+          "variant_id": "vibration_3_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "vibration autoencoder reconstruction",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "vibration",
+                "title": "Vibration reconstruction",
+                "text": "A vibration autoencoder reconstructs sampled machine signals. Reconstruction mean squared error can identify changed operating conditions, but threshold calibration and labeled validation are separate experiments.",
+                "score": 7.417362
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_3_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_3_base",
+            "samples": 32,
+            "mean_mse": 0.57073672496875
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_3_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_3_candidate",
+            "samples": 32,
+            "mean_mse": 0.4423209618507812
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "vibration_3_base",
+            "variant_id": "vibration_3_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "vibration_3_base",
+            "variant_id": "vibration_3_candidate",
+            "baseline_mse": 0.57073672496875,
+            "variant_mse": 0.4423209618507812,
+            "samples_per_run": 32,
+            "improvement_pct": 22.500000000000018
+          }
+        }
+      ],
+      "loaded": {
+        "vibration_3_base": {
+          "run_id": "vibration_3_base",
+          "samples": 32,
+          "mean_mse": 0.57073672496875
+        },
+        "vibration_3_candidate": {
+          "run_id": "vibration_3_candidate",
+          "samples": 32,
+          "mean_mse": 0.4423209618507812
+        }
+      },
+      "comparison": {
+        "baseline_id": "vibration_3_base",
+        "variant_id": "vibration_3_candidate",
+        "baseline_mse": 0.57073672496875,
+        "variant_mse": 0.4423209618507812,
+        "samples_per_run": 32,
+        "improvement_pct": 22.500000000000018
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "vibration"
+        ],
+        "improvement_pct": 22.500000000000018
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "vibration_4",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "vibration_4",
+        "query": "vibration autoencoder reconstruction",
+        "baseline": "vibration_4_base",
+        "variant": "vibration_4_candidate",
+        "expected_source": "vibration",
+        "expected_improvement_pct": 20.000000000000007
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "vibration_4_base",
+          "variant_id": "vibration_4_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "vibration autoencoder reconstruction",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "vibration",
+                "title": "Vibration reconstruction",
+                "text": "A vibration autoencoder reconstructs sampled machine signals. Reconstruction mean squared error can identify changed operating conditions, but threshold calibration and labeled validation are separate experiments.",
+                "score": 7.417362
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_4_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_4_base",
+            "samples": 32,
+            "mean_mse": 0.54473353796875
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_4_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_4_candidate",
+            "samples": 32,
+            "mean_mse": 0.435786830375
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "vibration_4_base",
+            "variant_id": "vibration_4_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "vibration_4_base",
+            "variant_id": "vibration_4_candidate",
+            "baseline_mse": 0.54473353796875,
+            "variant_mse": 0.435786830375,
+            "samples_per_run": 32,
+            "improvement_pct": 20.000000000000007
+          }
+        }
+      ],
+      "loaded": {
+        "vibration_4_base": {
+          "run_id": "vibration_4_base",
+          "samples": 32,
+          "mean_mse": 0.54473353796875
+        },
+        "vibration_4_candidate": {
+          "run_id": "vibration_4_candidate",
+          "samples": 32,
+          "mean_mse": 0.435786830375
+        }
+      },
+      "comparison": {
+        "baseline_id": "vibration_4_base",
+        "variant_id": "vibration_4_candidate",
+        "baseline_mse": 0.54473353796875,
+        "variant_mse": 0.435786830375,
+        "samples_per_run": 32,
+        "improvement_pct": 20.000000000000007
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "vibration"
+        ],
+        "improvement_pct": 20.000000000000007
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "vibration_5",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "vibration_5",
+        "query": "vibration autoencoder reconstruction",
+        "baseline": "vibration_5_base",
+        "variant": "vibration_5_candidate",
+        "expected_source": "vibration",
+        "expected_improvement_pct": 17.500000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "vibration_5_base",
+          "variant_id": "vibration_5_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "vibration autoencoder reconstruction",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "vibration",
+                "title": "Vibration reconstruction",
+                "text": "A vibration autoencoder reconstructs sampled machine signals. Reconstruction mean squared error can identify changed operating conditions, but threshold calibration and labeled validation are separate experiments.",
+                "score": 7.417362
+              },
+              {
+                "id": "dropout",
+                "title": "Missing sensor observations",
+                "text": "Sensor dropout creates missing observations. Compare an imputation variant with the baseline on a held-out sequence and report the missingness rate and reconstruction error.",
+                "score": 1.630302
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_5_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_5_base",
+            "samples": 32,
+            "mean_mse": 0.56240735328125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "vibration_5_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "vibration_5_candidate",
+            "samples": 32,
+            "mean_mse": 0.4639860664570312
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "vibration_5_base",
+            "variant_id": "vibration_5_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "vibration_5_base",
+            "variant_id": "vibration_5_candidate",
+            "baseline_mse": 0.56240735328125,
+            "variant_mse": 0.4639860664570312,
+            "samples_per_run": 32,
+            "improvement_pct": 17.500000000000007
+          }
+        }
+      ],
+      "loaded": {
+        "vibration_5_base": {
+          "run_id": "vibration_5_base",
+          "samples": 32,
+          "mean_mse": 0.56240735328125
+        },
+        "vibration_5_candidate": {
+          "run_id": "vibration_5_candidate",
+          "samples": 32,
+          "mean_mse": 0.4639860664570312
+        }
+      },
+      "comparison": {
+        "baseline_id": "vibration_5_base",
+        "variant_id": "vibration_5_candidate",
+        "baseline_mse": 0.56240735328125,
+        "variant_mse": 0.4639860664570312,
+        "samples_per_run": 32,
+        "improvement_pct": 17.500000000000007
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "vibration"
+        ],
+        "improvement_pct": 17.500000000000007
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "energy_0",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "energy_0",
+        "query": "energy demand forecasting power residual",
+        "baseline": "energy_0_base",
+        "variant": "energy_0_candidate",
+        "expected_source": "energy",
+        "expected_improvement_pct": 30.000000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "energy_0_base",
+          "variant_id": "energy_0_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "energy demand forecasting power residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "energy",
+                "title": "Energy demand residuals",
+                "text": "Energy demand forecasting residuals measure errors between predicted and observed power. Align timestamps and units before comparing smoothing or feature variants.",
+                "score": 10.685199
+              },
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 2.858649
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_0_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_0_base",
+            "samples": 32,
+            "mean_mse": 0.5018915430937501
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_0_candidate",
+            "samples": 32,
+            "mean_mse": 0.351324080165625
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "energy_0_base",
+            "variant_id": "energy_0_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "energy_0_base",
+            "variant_id": "energy_0_candidate",
+            "baseline_mse": 0.5018915430937501,
+            "variant_mse": 0.351324080165625,
+            "samples_per_run": 32,
+            "improvement_pct": 30.000000000000007
+          }
+        }
+      ],
+      "loaded": {
+        "energy_0_base": {
+          "run_id": "energy_0_base",
+          "samples": 32,
+          "mean_mse": 0.5018915430937501
+        },
+        "energy_0_candidate": {
+          "run_id": "energy_0_candidate",
+          "samples": 32,
+          "mean_mse": 0.351324080165625
+        }
+      },
+      "comparison": {
+        "baseline_id": "energy_0_base",
+        "variant_id": "energy_0_candidate",
+        "baseline_mse": 0.5018915430937501,
+        "variant_mse": 0.351324080165625,
+        "samples_per_run": 32,
+        "improvement_pct": 30.000000000000007
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "energy"
+        ],
+        "improvement_pct": 30.000000000000007
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "energy_1",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "energy_1",
+        "query": "energy demand forecasting power residual",
+        "baseline": "energy_1_base",
+        "variant": "energy_1_candidate",
+        "expected_source": "energy",
+        "expected_improvement_pct": 27.500000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "energy_1_base",
+          "variant_id": "energy_1_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "energy demand forecasting power residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "energy",
+                "title": "Energy demand residuals",
+                "text": "Energy demand forecasting residuals measure errors between predicted and observed power. Align timestamps and units before comparing smoothing or feature variants.",
+                "score": 10.685199
+              },
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 2.858649
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_1_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_1_base",
+            "samples": 32,
+            "mean_mse": 0.584117225625
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_1_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_1_candidate",
+            "samples": 32,
+            "mean_mse": 0.423484988578125
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "energy_1_base",
+            "variant_id": "energy_1_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "energy_1_base",
+            "variant_id": "energy_1_candidate",
+            "baseline_mse": 0.584117225625,
+            "variant_mse": 0.423484988578125,
+            "samples_per_run": 32,
+            "improvement_pct": 27.500000000000004
+          }
+        }
+      ],
+      "loaded": {
+        "energy_1_base": {
+          "run_id": "energy_1_base",
+          "samples": 32,
+          "mean_mse": 0.584117225625
+        },
+        "energy_1_candidate": {
+          "run_id": "energy_1_candidate",
+          "samples": 32,
+          "mean_mse": 0.423484988578125
+        }
+      },
+      "comparison": {
+        "baseline_id": "energy_1_base",
+        "variant_id": "energy_1_candidate",
+        "baseline_mse": 0.584117225625,
+        "variant_mse": 0.423484988578125,
+        "samples_per_run": 32,
+        "improvement_pct": 27.500000000000004
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "energy"
+        ],
+        "improvement_pct": 27.500000000000004
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "energy_2",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "energy_2",
+        "query": "energy demand forecasting power residual",
+        "baseline": "energy_2_base",
+        "variant": "energy_2_candidate",
+        "expected_source": "energy",
+        "expected_improvement_pct": 25.0
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "energy_2_base",
+          "variant_id": "energy_2_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "energy demand forecasting power residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "energy",
+                "title": "Energy demand residuals",
+                "text": "Energy demand forecasting residuals measure errors between predicted and observed power. Align timestamps and units before comparing smoothing or feature variants.",
+                "score": 10.685199
+              },
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 2.858649
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_2_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_2_base",
+            "samples": 32,
+            "mean_mse": 0.4982118043125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_2_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_2_candidate",
+            "samples": 32,
+            "mean_mse": 0.373658853234375
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "energy_2_base",
+            "variant_id": "energy_2_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "energy_2_base",
+            "variant_id": "energy_2_candidate",
+            "baseline_mse": 0.4982118043125,
+            "variant_mse": 0.373658853234375,
+            "samples_per_run": 32,
+            "improvement_pct": 25.000000000000007
+          }
+        }
+      ],
+      "loaded": {
+        "energy_2_base": {
+          "run_id": "energy_2_base",
+          "samples": 32,
+          "mean_mse": 0.4982118043125
+        },
+        "energy_2_candidate": {
+          "run_id": "energy_2_candidate",
+          "samples": 32,
+          "mean_mse": 0.373658853234375
+        }
+      },
+      "comparison": {
+        "baseline_id": "energy_2_base",
+        "variant_id": "energy_2_candidate",
+        "baseline_mse": 0.4982118043125,
+        "variant_mse": 0.373658853234375,
+        "samples_per_run": 32,
+        "improvement_pct": 25.000000000000007
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "energy"
+        ],
+        "improvement_pct": 25.000000000000007
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "energy_3",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "energy_3",
+        "query": "energy demand forecasting power residual",
+        "baseline": "energy_3_base",
+        "variant": "energy_3_candidate",
+        "expected_source": "energy",
+        "expected_improvement_pct": 22.500000000000007
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "energy_3_base",
+          "variant_id": "energy_3_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "energy demand forecasting power residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "energy",
+                "title": "Energy demand residuals",
+                "text": "Energy demand forecasting residuals measure errors between predicted and observed power. Align timestamps and units before comparing smoothing or feature variants.",
+                "score": 10.685199
+              },
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 2.858649
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_3_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_3_base",
+            "samples": 32,
+            "mean_mse": 0.573431004875
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_3_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_3_candidate",
+            "samples": 32,
+            "mean_mse": 0.44440902877812494
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "energy_3_base",
+            "variant_id": "energy_3_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "energy_3_base",
+            "variant_id": "energy_3_candidate",
+            "baseline_mse": 0.573431004875,
+            "variant_mse": 0.44440902877812494,
+            "samples_per_run": 32,
+            "improvement_pct": 22.50000000000001
+          }
+        }
+      ],
+      "loaded": {
+        "energy_3_base": {
+          "run_id": "energy_3_base",
+          "samples": 32,
+          "mean_mse": 0.573431004875
+        },
+        "energy_3_candidate": {
+          "run_id": "energy_3_candidate",
+          "samples": 32,
+          "mean_mse": 0.44440902877812494
+        }
+      },
+      "comparison": {
+        "baseline_id": "energy_3_base",
+        "variant_id": "energy_3_candidate",
+        "baseline_mse": 0.573431004875,
+        "variant_mse": 0.44440902877812494,
+        "samples_per_run": 32,
+        "improvement_pct": 22.50000000000001
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "energy"
+        ],
+        "improvement_pct": 22.50000000000001
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "energy_4",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "energy_4",
+        "query": "energy demand forecasting power residual",
+        "baseline": "energy_4_base",
+        "variant": "energy_4_candidate",
+        "expected_source": "energy",
+        "expected_improvement_pct": 20.000000000000007
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "energy_4_base",
+          "variant_id": "energy_4_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "energy demand forecasting power residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "energy",
+                "title": "Energy demand residuals",
+                "text": "Energy demand forecasting residuals measure errors between predicted and observed power. Align timestamps and units before comparing smoothing or feature variants.",
+                "score": 10.685199
+              },
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 2.858649
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_4_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_4_base",
+            "samples": 32,
+            "mean_mse": 0.58398808709375
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_4_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_4_candidate",
+            "samples": 32,
+            "mean_mse": 0.46719046967499994
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "energy_4_base",
+            "variant_id": "energy_4_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "energy_4_base",
+            "variant_id": "energy_4_candidate",
+            "baseline_mse": 0.58398808709375,
+            "variant_mse": 0.46719046967499994,
+            "samples_per_run": 32,
+            "improvement_pct": 20.000000000000014
+          }
+        }
+      ],
+      "loaded": {
+        "energy_4_base": {
+          "run_id": "energy_4_base",
+          "samples": 32,
+          "mean_mse": 0.58398808709375
+        },
+        "energy_4_candidate": {
+          "run_id": "energy_4_candidate",
+          "samples": 32,
+          "mean_mse": 0.46719046967499994
+        }
+      },
+      "comparison": {
+        "baseline_id": "energy_4_base",
+        "variant_id": "energy_4_candidate",
+        "baseline_mse": 0.58398808709375,
+        "variant_mse": 0.46719046967499994,
+        "samples_per_run": 32,
+        "improvement_pct": 20.000000000000014
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "energy"
+        ],
+        "improvement_pct": 20.000000000000014
+      },
+      "checkpoint_resumes": 4
+    }
+  },
+  {
+    "id": "energy_5",
+    "passed": true,
+    "state": {
+      "task": {
+        "id": "energy_5",
+        "query": "energy demand forecasting power residual",
+        "baseline": "energy_5_base",
+        "variant": "energy_5_candidate",
+        "expected_source": "energy",
+        "expected_improvement_pct": 17.500000000000004
+      },
+      "steps": 5,
+      "max_steps": 8,
+      "action": {
+        "kind": "tool",
+        "name": "compare_runs",
+        "arguments": {
+          "baseline_id": "energy_5_base",
+          "variant_id": "energy_5_candidate"
+        },
+        "report": {}
+      },
+      "observations": [
+        {
+          "name": "search_knowledge",
+          "arguments": {
+            "query": "energy demand forecasting power residual",
+            "k": 3
+          },
+          "attempts": 1,
+          "result": {
+            "documents": [
+              {
+                "id": "energy",
+                "title": "Energy demand residuals",
+                "text": "Energy demand forecasting residuals measure errors between predicted and observed power. Align timestamps and units before comparing smoothing or feature variants.",
+                "score": 10.685199
+              },
+              {
+                "id": "thermal",
+                "title": "Thermal drift calibration",
+                "text": "Temperature drift in a sensor changes its baseline. Compare calibrated and uncalibrated residual mean squared error on matched samples; a lower residual does not alone establish field reliability.",
+                "score": 2.858649
+              }
+            ]
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_5_base"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_5_base",
+            "samples": 32,
+            "mean_mse": 0.56290294203125
+          }
+        },
+        {
+          "name": "load_run",
+          "arguments": {
+            "run_id": "energy_5_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "run_id": "energy_5_candidate",
+            "samples": 32,
+            "mean_mse": 0.46439492717578124
+          }
+        },
+        {
+          "name": "compare_runs",
+          "arguments": {
+            "baseline_id": "energy_5_base",
+            "variant_id": "energy_5_candidate"
+          },
+          "attempts": 1,
+          "result": {
+            "baseline_id": "energy_5_base",
+            "variant_id": "energy_5_candidate",
+            "baseline_mse": 0.56290294203125,
+            "variant_mse": 0.46439492717578124,
+            "samples_per_run": 32,
+            "improvement_pct": 17.500000000000004
+          }
+        }
+      ],
+      "loaded": {
+        "energy_5_base": {
+          "run_id": "energy_5_base",
+          "samples": 32,
+          "mean_mse": 0.56290294203125
+        },
+        "energy_5_candidate": {
+          "run_id": "energy_5_candidate",
+          "samples": 32,
+          "mean_mse": 0.46439492717578124
+        }
+      },
+      "comparison": {
+        "baseline_id": "energy_5_base",
+        "variant_id": "energy_5_candidate",
+        "baseline_mse": 0.56290294203125,
+        "variant_mse": 0.46439492717578124,
+        "samples_per_run": 32,
+        "improvement_pct": 17.500000000000004
+      },
+      "status": "complete",
+      "report": {
+        "summary": "Synthetic experiment comparison with retrieved engineering context.",
+        "citations": [
+          "energy"
+        ],
+        "improvement_pct": 17.500000000000004
+      },
+      "checkpoint_resumes": 4
+    }
+  }
+]
